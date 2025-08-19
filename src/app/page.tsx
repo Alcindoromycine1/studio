@@ -103,7 +103,7 @@ export default function HackTheNet() {
         initial="hidden" animate="visible" variants={fadeIn}
         className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
       >
-        <div className="absolute -top-40 left-1/2 h-80 w-[48rem] -translate-x-1/2 rounded-full bg-fuchsia-500/10 blur-3xl" />
+        <div className="absolute -top-40 left-1/2 h-80 w-[48rem] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
         <div className="absolute top-40 left-1/4 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl animate-pulse" />
         <div className="absolute bottom-0 right-1/3 h-72 w-72 rounded-full bg-indigo-500/10 blur-3xl animate-spin-slow" />
       </motion.div>

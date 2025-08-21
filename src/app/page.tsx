@@ -15,7 +15,7 @@ const EVENT = {
   end: new Date("2026-03-16T18:00:00-05:00"),
   location: "Virtual",
   registrationUrl: "https://app.youform.com/forms/t57t7025",
-  sponsorEmail: "sponsor@hackthenet.dev",
+  sponsorEmail: "hackthenet@gmail.com",
 };
 
 function useCountdown(targetDate: Date) {

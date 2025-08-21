@@ -12,7 +12,7 @@ const EVENT = {
   name: "Hack The Net",
   tagline: "Empowering students to hack the future.",
   start: new Date("2026-03-14T08:00:00-05:00"),
-  end: new Date("2026-03-22T18:00:00-05:00"),
+  end: new Date("2026-03-23T18:00:00-05:00"),
   location: "Virtual Hackathon",
   registrationUrl: "https://app.youform.com/forms/t57t7025",
   sponsorEmail: "hackthenet@gmail.com",
@@ -165,7 +165,7 @@ export default function HackTheNet() {
         <section className="mx-auto max-w-7xl px-4 pb-10 pt-16 sm:pt-24" id="about">
           <div className="grid items-center gap-8 md:grid-cols-2">
             <motion.div variants={fadeInUp} initial="hidden" animate="visible">
-              <Badge className="mb-3 bg-gradient-to-r from-primary to-accent text-primary-foreground">New • 8 day hackathon</Badge>
+              <Badge className="mb-3 bg-gradient-to-r from-primary to-accent text-primary-foreground">New • 9 day hackathon</Badge>
               <h1 className="text-4xl font-extrabold tracking-tight md:text-6xl">{EVENT.name}</h1>
               <p className="mt-4 max-w-xl text-lg text-neutral-300">{EVENT.tagline}</p>
               <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4 text-sm text-neutral-300">

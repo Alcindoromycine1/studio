@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Rocket, Calendar, Network, Users, Gift, Shield, Code, Cpu, Globe, Timer, ChevronRight, Mail, Trophy } from "lucide-react";
+import { Rocket, Calendar, Network, Users, Gift, Shield, Code, Cpu, Globe, Timer, ChevronRight, Mail, Trophy, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -68,9 +68,9 @@ export default function HackTheNet() {
 
   const tracks = [
     { icon: <Globe className="h-6 w-6" />, title: "Open Internet", text: "Privacy, identity, interoperability, and decentralized protocols." },
-    { icon: <Code className="h-6 w-6" />, title: "AI x DevTools", text: "Agents, copilots, and tools that supercharge builders." },
+    { icon: <Code className="h-6 w-6" />, title: "AI-Powered App Generation", text: "Use AI to write the code for your entire application, from frontend to backend." },
     { icon: <Shield className="h-6 w-6" />, title: "Cybersecurity", text: "Secure the stack: detection, response, auth, and resilience." },
-    { icon: <Rocket className="h-6 w-6" />, title: "Wildcard", text: "Surprise us with something wildly useful or wildly fun." },
+    { icon: <Palette className="h-6 w-6" />, title: "Vibecoding", text: "Create something beautiful, artistic, or just plain fun. The vibe is the only limit." },
   ];
 
   const schedule = [

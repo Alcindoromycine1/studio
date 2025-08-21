@@ -78,12 +78,6 @@ const SmoothScrollLink = ({ href, children, ...props }: React.AnchorHTMLAttribut
 
 const Logo = () => (
   <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="20" cy="20" r="18" fill="#111111"/>
-    <circle cx="20" cy="20" r="16" fill="#1C1C1E"/>
-    <ellipse cx="20" cy="20" rx="14" ry="14" stroke="#9370DB" strokeWidth="1"/>
-    <path d="M6 20C6 12.268 12.268 6 20 6C27.732 6 34 12.268 34 20C34 27.732 27.732 34 20 34C12.268 34 6 27.732 6 20Z" stroke="#9370DB" strokeWidth="1"/>
-    <ellipse cx="20" cy="20" rx="8" ry="14" stroke="#9370DB" strokeWidth="1"/>
-    <ellipse cx="20" cy="20" rx="12" ry="14" stroke="#9370DB" strokeWidth="1"/>
     <path d="M20 6V34" stroke="#9370DB" strokeWidth="1"/>
     <path d="M27.0711 9.92893L12.9289 24.0711" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
     <path d="M32.2426 14.1716L7.75736 29.8284" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
@@ -163,7 +157,7 @@ export default function HackTheNet() {
           className="mx-auto flex max-w-7xl items-center justify-between p-4"
         >
           <a href="#" className="flex items-center gap-2">
-            <motion.div whileHover={{ rotate: 15 }} className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-primary to-accent"><Logo /></motion.div>
+            <motion.div whileHover={{ rotate: 15 }}><Logo /></motion.div>
             <span className="text-lg font-semibold">{EVENT.name}</span>
           </a>
           <nav className="hidden gap-6 md:flex">
@@ -358,7 +352,7 @@ export default function HackTheNet() {
         <div className="mx-auto max-w-7xl px-4 py-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div className="flex items-center gap-2">
-              <div className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-primary to-accent"><Logo /></div>
+              <Logo />
               <span className="font-semibold">{EVENT.name}</span>
             </div>
             <p className="text-center text-sm text-neutral-400">

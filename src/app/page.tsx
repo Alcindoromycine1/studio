@@ -76,6 +76,34 @@ const SmoothScrollLink = ({ href, children, ...props }: React.AnchorHTMLAttribut
   );
 };
 
+const Logo = () => (
+  <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="20" cy="20" r="18" fill="#111111"/>
+    <circle cx="20" cy="20" r="16" fill="#1C1C1E"/>
+    <ellipse cx="20" cy="20" rx="14" ry="14" stroke="#9370DB" strokeWidth="1"/>
+    <path d="M6 20C6 12.268 12.268 6 20 6C27.732 6 34 12.268 34 20C34 27.732 27.732 34 20 34C12.268 34 6 27.732 6 20Z" stroke="#9370DB" strokeWidth="1"/>
+    <ellipse cx="20" cy="20" rx="8" ry="14" stroke="#9370DB" strokeWidth="1"/>
+    <ellipse cx="20" cy="20" rx="12" ry="14" stroke="#9370DB" strokeWidth="1"/>
+    <path d="M20 6V34" stroke="#9370DB" strokeWidth="1"/>
+    <path d="M27.0711 9.92893L12.9289 24.0711" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
+    <path d="M32.2426 14.1716L7.75736 29.8284" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
+    <path d="M9.92893 9.92893L24.0711 24.0711" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
+    <path d="M14.1716 7.75736L29.8284 22.2426" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
+    <path d="M7.75739 14.1716L22.2426 29.8284" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
+    <path d="M9.92893 30.0711L24.0711 15.9289" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
+    <path d="M6.34315 22.9289L19.6569 8.34315" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
+    <path d="M22.9289 33.6569L8.34315 19.6569" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
+    <path d="M30.0711 30.0711L15.9289 15.9289" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
+    <path d="M33.6569 22.9289L19.6569 6.34315" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
+    <path d="M16 16H24V24H16V16Z" fill="#6A4C9C"/>
+    <path d="M16 16H18V24H16V16Z" fill="#4B2E72"/>
+    <path d="M22 16H24V24H22V16Z" fill="#4B2E72"/>
+    <path d="M16 19H24V21H16V19Z" fill="#4B2E72"/>
+    <path d="M18.5 17L18 18.5" stroke="#3A1E52" strokeWidth="0.5"/>
+    <path d="M21.5 22L21 23.5" stroke="#3A1E52" strokeWidth="0.5"/>
+  </svg>
+);
+
 
 export default function HackTheNet() {
   const countdown = useCountdown(EVENT.start);
@@ -135,7 +163,7 @@ export default function HackTheNet() {
           className="mx-auto flex max-w-7xl items-center justify-between p-4"
         >
           <a href="#" className="flex items-center gap-2">
-            <motion.div whileHover={{ rotate: 15 }} className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-primary to-accent"><Globe className="h-4 w-4" /></motion.div>
+            <motion.div whileHover={{ rotate: 15 }} className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-primary to-accent"><Logo /></motion.div>
             <span className="text-lg font-semibold">{EVENT.name}</span>
           </a>
           <nav className="hidden gap-6 md:flex">
@@ -330,7 +358,7 @@ export default function HackTheNet() {
         <div className="mx-auto max-w-7xl px-4 py-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div className="flex items-center gap-2">
-              <div className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-primary to-accent"><Globe className="h-4 w-4" /></div>
+              <div className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-primary to-accent"><Logo /></div>
               <span className="font-semibold">{EVENT.name}</span>
             </div>
             <p className="text-center text-sm text-neutral-400">

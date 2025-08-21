@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Rocket, Calendar, Network, Users, Gift, Shield, Code, Cpu, Globe, Timer, ChevronRight, Mail, Trophy, Palette } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -55,6 +55,27 @@ const scaleIn = {
   hidden: { opacity: 0, scale: 0.9 },
   visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: "easeOut" } },
 };
+
+const SmoothScrollLink = ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { children: React.ReactNode }) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetId = href.substring(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  return (
+    <a href={href} onClick={handleClick} {...props}>
+      {children}
+    </a>
+  );
+};
+
 
 export default function HackTheNet() {
   const countdown = useCountdown(EVENT.start);
@@ -119,11 +140,17 @@ export default function HackTheNet() {
           </a>
           <nav className="hidden gap-6 md:flex">
             {["About", "Tracks", "Schedule", "Prizes", "FAQ"].map((link) => (
-              <motion.a
-                key={link} href={`#${link.toLowerCase()}`}
-                className="text-sm text-neutral-300 transition-colors hover:text-white"
+              <motion.div
+                key={link}
                 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}
-              >{link}</motion.a>
+              >
+                <SmoothScrollLink
+                  href={`#${link.toLowerCase()}`}
+                  className="text-sm text-neutral-300 transition-colors hover:text-white"
+                >
+                  {link}
+                </SmoothScrollLink>
+              </motion.div>
             ))}
           </nav>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -153,7 +180,7 @@ export default function HackTheNet() {
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button variant="secondary" asChild size="lg" className="rounded-xl">
-                    <a href="#tracks">Explore Tracks</a>
+                    <SmoothScrollLink href="#tracks">Explore Tracks</SmoothScrollLink>
                   </Button>
                 </motion.div>
               </div>

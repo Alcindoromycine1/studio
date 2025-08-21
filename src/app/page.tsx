@@ -249,7 +249,7 @@ export default function HackTheNet() {
           <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mx-auto max-w-7xl px-4">
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Choose Your Track</h2>
-              <p className="mt-4 text-lg text-neutral-300">Choose whichever style you prefer. We have everything that'll peek your interest.</p>
+              <p className="mt-4 text-lg text-neutral-300">Choose whichever style you prefer. We have everything that'll pique your interest.</p>
             </div>
             <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
               {tracks.map((track, i) => (
@@ -363,5 +363,3 @@ export default function HackTheNet() {
     </div>
   );
 }
-
-    

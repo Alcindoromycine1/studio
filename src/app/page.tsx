@@ -77,27 +77,27 @@ const SmoothScrollLink = ({ href, children, ...props }: React.AnchorHTMLAttribut
 };
 
 const Logo = () => (
-  <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 6V34" stroke="#9370DB" strokeWidth="1"/>
-    <path d="M27.0711 9.92893L12.9289 24.0711" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
-    <path d="M32.2426 14.1716L7.75736 29.8284" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
-    <path d="M9.92893 9.92893L24.0711 24.0711" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
-    <path d="M14.1716 7.75736L29.8284 22.2426" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
-    <path d="M7.75739 14.1716L22.2426 29.8284" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
-    <path d="M9.92893 30.0711L24.0711 15.9289" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
-    <path d="M6.34315 22.9289L19.6569 8.34315" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
-    <path d="M22.9289 33.6569L8.34315 19.6569" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
-    <path d="M30.0711 30.0711L15.9289 15.9289" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
-    <path d="M33.6569 22.9289L19.6569 6.34315" stroke="#9370DB" strokeWidth="1" strokeLinecap="round"/>
-    <path d="M16 16H24V24H16V16Z" fill="#6A4C9C"/>
-    <path d="M16 16H18V24H16V16Z" fill="#4B2E72"/>
-    <path d="M22 16H24V24H22V16Z" fill="#4B2E72"/>
-    <path d="M16 19H24V21H16V19Z" fill="#4B2E72"/>
-    <path d="M18.5 17L18 18.5" stroke="#3A1E52" strokeWidth="0.5"/>
-    <path d="M21.5 22L21 23.5" stroke="#3A1E52" strokeWidth="0.5"/>
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 37.5C30.3553 37.5 38.75 29.1053 38.75 18.75C38.75 8.39469 30.3553 0 20 0C9.64469 0 1.25 8.39469 1.25 18.75C1.25 29.1053 9.64469 37.5 20 37.5Z" fill="#2D2A32"/>
+    <path d="M20 35C28.2843 35 35 27.2091 35 18.75C35 10.2909 28.2843 2.5 20 2.5C11.7157 2.5 5 10.2909 5 18.75C5 27.2091 11.7157 35 20 35Z" stroke="#3A1E52" strokeWidth="2.5"/>
+    <path d="M35 18.75C35 27.2091 28.2843 35 20 35C11.7157 35 5 27.2091 5 18.75C5 10.2909 11.7157 2.5 20 2.5C28.2843 2.5 35 10.2909 35 18.75Z" stroke="#9370DB" strokeOpacity="0.5"/>
+    <path d="M5 18.75H35" stroke="#9370DB" strokeOpacity="0.5"/>
+    <path d="M20 2.5C18.0396 2.5 16.1264 2.87125 14.3331 3.58187C10.7834 5.00188 8.01906 7.78313 6.62156 11.3719M20 2.5C21.9604 2.5 23.8736 2.87125 25.6669 3.58187C29.2166 5.00188 31.9809 7.78313 33.3784 11.3719" stroke="#9370DB" strokeOpacity="0.5"/>
+    <path d="M20 35C21.9604 35 23.8736 34.6288 25.6669 33.9181C29.2166 32.4981 31.9809 29.7169 33.3784 26.1281M20 35C18.0396 35 16.1264 34.6288 14.3331 33.9181C10.7834 32.4981 8.01906 29.7169 6.62156 26.1281" stroke="#9370DB" strokeOpacity="0.5"/>
+    <path d="M20 2.5V35" stroke="#9370DB" strokeOpacity="0.5"/>
+    <ellipse cx="20" cy="18.75" rx="8.125" ry="16.25" stroke="#9370DB" strokeOpacity="0.5"/>
+    <ellipse cx="20" cy="18.75" rx="15" ry="5.625" stroke="#9370DB" strokeOpacity="0.5"/>
+    <path d="M20 2.5C16.8297 2.5 13.9186 4.34125 12.0078 7.37125" stroke="#9370DB" strokeOpacity="0.5"/>
+    <path d="M20 2.5C23.1703 2.5 26.0814 4.34125 27.9922 7.37125" stroke="#9370DB" strokeOpacity="0.5"/>
+    <path d="M20 35C23.1703 35 26.0814 33.1587 27.9922 30.1287" stroke="#9370DB" strokeOpacity="0.5"/>
+    <path d="M20 35C16.8297 35 13.9186 33.1587 12.0078 30.1287" stroke="#9370DB" strokeOpacity="0.5"/>
+    <path d="M16.25 15V22.5H18.125V18.75H21.875V22.5H23.75V15H21.875V17.5H18.125V15H16.25Z" fill="#4B2E72"/>
+    <path d="M16.4219 15.2188L17.2812 15.3438L16.4219 16.5V15.2188Z" fill="#3A1E52"/>
+    <path d="M23.5781 22.2812L22.7188 22.1562L23.5781 21V22.2812Z" fill="#3A1E52"/>
+    <path d="M10.2812 12.5C10.4375 12.5 10.5625 12.625 10.5625 12.8438C10.5625 12.9375 10.5312 13.0312 10.5 13.0938C10.4375 13.1875 10.375 13.25 10.2812 13.25C10.1562 13.25 10 13.125 10 12.9688C10 12.7812 10.125 12.5 10.2812 12.5Z" fill="#9370DB"/>
+    <path d="M10.2812 12.5L10 12.9688L10.5625 12.8438L10.2812 12.5Z" fill="#4B2E72"/>
   </svg>
 );
-
 
 export default function HackTheNet() {
   const countdown = useCountdown(EVENT.start);
@@ -226,7 +226,6 @@ export default function HackTheNet() {
               initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-tr from-primary/30 via-accent/30 to-indigo-500/30 blur-2xl" />
               <div className="relative rounded-[2rem] border border-border bg-card p-6 shadow-2xl">
                 <div className="grid gap-4 md:grid-cols-2">
                   {perks.map((p, i) => (

@@ -13,7 +13,7 @@ const EVENT = {
   tagline: "Empowering students to hack the future.",
   start: new Date("2026-03-14T08:00:00-05:00"),
   end: new Date("2026-03-16T18:00:00-05:00"),
-  location: "Virtual",
+  location: "Virtual Hackathon",
   registrationUrl: "https://app.youform.com/forms/t57t7025",
   sponsorEmail: "hackthenet@gmail.com",
 };

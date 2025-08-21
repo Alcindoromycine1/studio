@@ -14,7 +14,7 @@ const EVENT = {
   start: new Date("2026-03-14T08:00:00-05:00"),
   end: new Date("2026-03-16T18:00:00-05:00"),
   location: "Virtual",
-  registrationUrl: "#",
+  registrationUrl: "https://app.youform.com/forms/t57t7025",
   sponsorEmail: "sponsor@hackthenet.dev",
 };
 
@@ -142,7 +142,7 @@ export default function HackTheNet() {
               <h1 className="text-4xl font-extrabold tracking-tight md:text-6xl">{EVENT.name}</h1>
               <p className="mt-4 max-w-xl text-lg text-neutral-300">{EVENT.tagline}</p>
               <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4 text-sm text-neutral-300">
-                <span className="inline-flex items-center gap-2"><Calendar className="h-4 w-4 text-accent" />{new Date(EVENT.start).toLocaleDateString(undefined, { month: 'long', day: 'numeric' })} - {new Date(EVENT.end).toLocaleDateString(undefined, { day: 'numeric', year: 'numeric' }).split(',')[0]}, {new Date(EVENT.end).getFullYear()}</span>
+                <span className="inline-flex items-center gap-2"><Calendar className="h-4 w-4 text-accent" />{new Date(EVENT.start).toLocaleDateString(undefined, { month: 'long', day: 'numeric' })} - {new Date(EVENT.end).toLocaleDateString(undefined, { day: 'numeric', year: 'numeric' })}</span>
                 <span className="inline-flex items-center gap-2"><Network className="h-4 w-4 text-accent" />{EVENT.location}</span>
               </div>
               <div className="mt-8 flex items-center gap-3">

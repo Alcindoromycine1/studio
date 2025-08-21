@@ -11,8 +11,8 @@ import { Badge } from "@/components/ui/badge";
 const EVENT = {
   name: "Hack The Net",
   tagline: "Build boldly. Ship fast. Hack the future of the open internet.",
-  start: new Date("2025-11-07T15:00:00-05:00"),
-  end: new Date("2025-11-09T18:00:00-05:00"),
+  start: new Date("2026-03-14T08:00:00-05:00"),
+  end: new Date("2026-03-16T18:00:00-05:00"),
   location: "Your Venue • City, Country",
   registrationUrl: "#",
   sponsorEmail: "sponsor@hackthenet.dev",

@@ -77,25 +77,14 @@ const SmoothScrollLink = ({ href, children, ...props }: React.AnchorHTMLAttribut
 };
 
 const Logo = () => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 37.5C30.3553 37.5 38.75 29.1053 38.75 18.75C38.75 8.39469 30.3553 0 20 0C9.64469 0 1.25 8.39469 1.25 18.75C1.25 29.1053 9.64469 37.5 20 37.5Z" fill="#2D2A32"/>
-    <path d="M20 35C28.2843 35 35 27.2091 35 18.75C35 10.2909 28.2843 2.5 20 2.5C11.7157 2.5 5 10.2909 5 18.75C5 27.2091 11.7157 35 20 35Z" stroke="#3A1E52" strokeWidth="2.5"/>
-    <path d="M35 18.75C35 27.2091 28.2843 35 20 35C11.7157 35 5 27.2091 5 18.75C5 10.2909 11.7157 2.5 20 2.5C28.2843 2.5 35 10.2909 35 18.75Z" stroke="#9370DB" strokeOpacity="0.5"/>
-    <path d="M5 18.75H35" stroke="#9370DB" strokeOpacity="0.5"/>
-    <path d="M20 2.5C18.0396 2.5 16.1264 2.87125 14.3331 3.58187C10.7834 5.00188 8.01906 7.78313 6.62156 11.3719M20 2.5C21.9604 2.5 23.8736 2.87125 25.6669 3.58187C29.2166 5.00188 31.9809 7.78313 33.3784 11.3719" stroke="#9370DB" strokeOpacity="0.5"/>
-    <path d="M20 35C21.9604 35 23.8736 34.6288 25.6669 33.9181C29.2166 32.4981 31.9809 29.7169 33.3784 26.1281M20 35C18.0396 35 16.1264 34.6288 14.3331 33.9181C10.7834 32.4981 8.01906 29.7169 6.62156 26.1281" stroke="#9370DB" strokeOpacity="0.5"/>
-    <path d="M20 2.5V35" stroke="#9370DB" strokeOpacity="0.5"/>
-    <ellipse cx="20" cy="18.75" rx="8.125" ry="16.25" stroke="#9370DB" strokeOpacity="0.5"/>
-    <ellipse cx="20" cy="18.75" rx="15" ry="5.625" stroke="#9370DB" strokeOpacity="0.5"/>
-    <path d="M20 2.5C16.8297 2.5 13.9186 4.34125 12.0078 7.37125" stroke="#9370DB" strokeOpacity="0.5"/>
-    <path d="M20 2.5C23.1703 2.5 26.0814 4.34125 27.9922 7.37125" stroke="#9370DB" strokeOpacity="0.5"/>
-    <path d="M20 35C23.1703 35 26.0814 33.1587 27.9922 30.1287" stroke="#9370DB" strokeOpacity="0.5"/>
-    <path d="M20 35C16.8297 35 13.9186 33.1587 12.0078 30.1287" stroke="#9370DB" strokeOpacity="0.5"/>
-    <path d="M16.25 15V22.5H18.125V18.75H21.875V22.5H23.75V15H21.875V17.5H18.125V15H16.25Z" fill="#4B2E72"/>
-    <path d="M16.4219 15.2188L17.2812 15.3438L16.4219 16.5V15.2188Z" fill="#3A1E52"/>
-    <path d="M23.5781 22.2812L22.7188 22.1562L23.5781 21V22.2812Z" fill="#3A1E52"/>
-    <path d="M10.2812 12.5C10.4375 12.5 10.5625 12.625 10.5625 12.8438C10.5625 12.9375 10.5312 13.0312 10.5 13.0938C10.4375 13.1875 10.375 13.25 10.2812 13.25C10.1562 13.25 10 13.125 10 12.9688C10 12.7812 10.125 12.5 10.2812 12.5Z" fill="#9370DB"/>
-    <path d="M10.2812 12.5L10 12.9688L10.5625 12.8438L10.2812 12.5Z" fill="#4B2E72"/>
+  <svg width="40" height="40" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M128 24a104 104 0 1 0 0 208 104 104 0 0 0 0-208Z" stroke="#9370DB" stroke-opacity=".5" stroke-width="16"/>
+    <path d="M24 128h208" stroke="#9370DB" stroke-opacity=".5" stroke-width="16"/>
+    <path d="M128 24a104.3 104.3 0 0 0-73.5 30.5 104.3 104.3 0 0 0 0 147 104.3 104.3 0 0 0 147 0 104.3 104.3 0 0 0 0-147A104.3 104.3 0 0 0 128 24Z" stroke="#9370DB" stroke-opacity=".5" stroke-width="16"/>
+    <path d="M128 24v208" stroke="#9370DB" stroke-opacity=".5" stroke-width="16"/>
+    <ellipse cx="128" cy="128" rx="52" ry="104" stroke="#9370DB" stroke-opacity=".5" stroke-width="16"/>
+    <ellipse cx="128" cy="128" rx="104" ry="36" stroke="#9370DB" stroke-opacity=".5" stroke-width="16"/>
+    <path d="M104 96v64h12V120h24v40h12V96h-12v16h-24V96h-12Z" fill="#4B2E72"/>
   </svg>
 );
 

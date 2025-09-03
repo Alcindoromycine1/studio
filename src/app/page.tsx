@@ -125,7 +125,7 @@ export default function HackTheNet() {
 
   const faqs = [
     { q: "Who can participate?", a: "Students, professionals, and beginners are welcome. Form a team of up to 4 or hack solo." },
-    { q: "Is it free?", a: "Yes! Thanks to our sponsors, admission is free for accepted hackers." },
+    { q: "Is it free?", a: "Yes! Admission is free for everyone!" },
     { q: "Do I need an idea beforehand?", a: "Nope. We'll run team-forming sessions and idea jams to help you get rolling." },
   ];
 

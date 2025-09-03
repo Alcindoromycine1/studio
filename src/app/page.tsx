@@ -77,10 +77,16 @@ const SmoothScrollLink = ({ href, children, ...props }: React.AnchorHTMLAttribut
 };
 
 const Logo = () => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#4B2E72"/>
-    <path d="M20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0ZM28.3333 11.6667V28.3333H25V21.6667H15V28.3333H11.6667V11.6667H15V18.3333H25V11.6667H28.3333Z" fill="#9370DB"/>
-  </svg>
+    <svg width="40" height="40" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M128 256C198.705 256 256 198.705 256 128C256 57.2949 198.705 0 128 0C57.2949 0 0 57.2949 0 128C0 198.705 57.2949 256 128 256Z" fill="url(#paint0_linear_1_2)"/>
+        <path d="M182.889 61.2222V194.778H165.111V150.222H90.8889V194.778H73.1111V61.2222H90.8889V123.556H165.111V61.2222H182.889Z" fill="white"/>
+        <defs>
+            <linearGradient id="paint0_linear_1_2" x1="128" y1="0" x2="128" y2="256" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#4B2E72"/>
+                <stop offset="1" stopColor="#9370DB"/>
+            </linearGradient>
+        </defs>
+    </svg>
 );
 
 export default function HackTheNet() {
@@ -119,7 +125,6 @@ export default function HackTheNet() {
 
   const faqs = [
     { q: "Who can participate?", a: "Students, professionals, and beginners are welcome. Form a team of up to 4 or hack solo." },
-    { q: "What should I bring?", a: "Laptop, chargers, valid ID, and anything you need to be comfy (hoodie, water bottle, etc.). We provide power and Wi-Fi." },
     { q: "Is it free?", a: "Yes! Thanks to our sponsors, admission is free for accepted hackers." },
     { q: "Do I need an idea beforehand?", a: "Nope. We'll run team-forming sessions and idea jams to help you get rolling." },
   ];

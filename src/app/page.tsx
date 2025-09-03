@@ -110,7 +110,7 @@ export default function HackTheNet() {
   ];
 
   const paths = [
-    { icon: <Globe className="h-6 w-6" />, title: "Open Internet", text: "Privacy, identity, interoperability, and decentralized protocols." },
+    { icon: <Rocket className="h-6 w-6" />, title: "Hard Coding", text: "Show off your raw coding skills. Build from the ground up, optimize for performance, and solve complex challenges with pure algorithms." },
     { icon: <Code className="h-6 w-6" />, title: "AI-Powered App Generation", text: "Use AI to write the code for your entire application, from frontend to backend." },
     { icon: <Shield className="h-6 w-6" />, title: "Cybersecurity", text: "Secure the stack: detection, response, auth, and resilience." },
     { icon: <Palette className="h-6 w-6" />, title: "Vibecoding", text: "Create something beautiful, artistic, or just plain fun. The vibe is the only limit." },

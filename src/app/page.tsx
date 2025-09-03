@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Rocket, Calendar, Network, Users, Gift, Shield, Code, Cpu, Globe, Timer, ChevronRight, Mail, Trophy, Palette } from "lucide-react";
+import { Rocket, Calendar, Network, Users, Gift, Shield, Code, Cpu, Globe, Timer, ChevronRight, Mail, Trophy, Palette, Video, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -93,10 +93,10 @@ export default function HackTheNet() {
   const countdown = useCountdown(EVENT.start);
 
   const perks = [
-    { icon: <Cpu className="h-5 w-5" />, title: "24/7 Workspace", text: "Power, snacks, mentors, and lightning-fast Wi-Fi." },
-    { icon: <Users className="h-5 w-5" />, title: "Mentor Rooms", text: "Book time with experts in AI, web, cloud, and hardware." },
-    { icon: <Gift className="h-5 w-5" />, title: "Prizes & Swag", text: "Win big and grab exclusive event merch." },
-    { icon: <Shield className="h-5 w-5" />, title: "Beginner-Friendly", text: "Workshops and starter kits to help you ship." },
+    { icon: <Globe className="h-5 w-5" />, title: "Global Connection", text: "Collaborate with hackers from around the world in our virtual workspace." },
+    { icon: <Users className="h-5 w-5" />, title: "Virtual Mentorship", text: "Get 1:1 guidance from industry experts through dedicated video channels." },
+    { icon: <Gift className="h-5 w-5" />, title: "Digital Prizes & Swag", text: "Win awesome digital rewards and get swag delivered to your door." },
+    { icon: <Video className="h-5 w-5" />, title: "Online Workshops", text: "Live-streamed workshops and tutorials to help you get started." },
   ];
 
   const paths = [
@@ -352,3 +352,5 @@ export default function HackTheNet() {
     </div>
   );
 }
+
+    

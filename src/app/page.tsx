@@ -109,7 +109,7 @@ export default function HackTheNet() {
     { icon: <Shield className="h-5 w-5" />, title: "Beginner-Friendly", text: "Workshops and starter kits to help you ship." },
   ];
 
-  const tracks = [
+  const paths = [
     { icon: <Globe className="h-6 w-6" />, title: "Open Internet", text: "Privacy, identity, interoperability, and decentralized protocols." },
     { icon: <Code className="h-6 w-6" />, title: "AI-Powered App Generation", text: "Use AI to write the code for your entire application, from frontend to backend." },
     { icon: <Shield className="h-6 w-6" />, title: "Cybersecurity", text: "Secure the stack: detection, response, auth, and resilience." },
@@ -129,7 +129,7 @@ export default function HackTheNet() {
   
   const prizes = [
     { icon: <Trophy className="h-8 w-8 text-amber-400" />, title: "Grand Prize", text: "$5,000 cash, plus high-end gear from our sponsors and a featured spot on our blog." },
-    { icon: <Trophy className="h-8 w-8 text-slate-300" />, title: "Track Winners", text: "$1,500 for the best project in each track: Open Internet, AI x DevTools, and Cybersecurity." },
+    { icon: <Trophy className="h-8 w-8 text-slate-300" />, title: "Path Winners", text: "$1,500 for the best project in each path: Open Internet, AI x DevTools, and Cybersecurity." },
     { icon: <Trophy className="h-8 w-8 text-orange-400" />, title: "Best Wildcard", text: "$1,000 for the most creative, fun, or surprising 'Wildcard' project." },
   ];
 
@@ -161,7 +161,7 @@ export default function HackTheNet() {
             <span className="text-lg font-semibold">{EVENT.name}</span>
           </a>
           <nav className="hidden gap-6 md:flex">
-            {["About", "Tracks", "Schedule", "Prizes", "FAQ"].map((link) => (
+            {["About", "Paths", "Schedule", "Prizes", "FAQ"].map((link) => (
               <motion.div
                 key={link}
                 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}
@@ -202,7 +202,7 @@ export default function HackTheNet() {
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button variant="secondary" asChild size="lg" className="rounded-xl">
-                    <SmoothScrollLink href="#tracks">Explore Tracks</SmoothScrollLink>
+                    <SmoothScrollLink href="#paths">Explore Paths</SmoothScrollLink>
                   </Button>
                 </motion.div>
               </div>
@@ -245,21 +245,21 @@ export default function HackTheNet() {
           </div>
         </section>
 
-        <section id="tracks" className="py-20 sm:py-32">
+        <section id="paths" className="py-20 sm:py-32">
           <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mx-auto max-w-7xl px-4">
             <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Choose Your Track</h2>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Choose Your Path</h2>
               <p className="mt-4 text-lg text-neutral-300">Choose whichever style you prefer. We have everything that'll pique your interest.</p>
             </div>
             <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-              {tracks.map((track, i) => (
-                <motion.div key={track.title} variants={fadeInUp} transition={{ delay: i * 0.1 }}>
+              {paths.map((path, i) => (
+                <motion.div key={path.title} variants={fadeInUp} transition={{ delay: i * 0.1 }}>
                   <Card className="h-full border-border bg-card transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20">
                     <CardHeader>
-                      <div className="mb-4 grid h-12 w-12 place-items-center rounded-lg bg-secondary text-primary">{track.icon}</div>
-                      <CardTitle>{track.title}</CardTitle>
+                      <div className="mb-4 grid h-12 w-12 place-items-center rounded-lg bg-secondary text-primary">{path.icon}</div>
+                      <CardTitle>{path.title}</CardTitle>
                     </CardHeader>
-                    <CardContent><p className="text-neutral-300">{track.text}</p></CardContent>
+                    <CardContent><p className="text-neutral-300">{path.text}</p></CardContent>
                   </Card>
                 </motion.div>
               ))}

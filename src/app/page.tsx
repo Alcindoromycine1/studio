@@ -77,14 +77,9 @@ const SmoothScrollLink = ({ href, children, ...props }: React.AnchorHTMLAttribut
 };
 
 const Logo = () => (
-  <svg width="40" height="40" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M128 24a104 104 0 1 0 0 208 104 104 0 0 0 0-208Z" stroke="#9370DB" stroke-opacity=".5" stroke-width="16"/>
-    <path d="M24 128h208" stroke="#9370DB" stroke-opacity=".5" stroke-width="16"/>
-    <path d="M128 24a104.3 104.3 0 0 0-73.5 30.5 104.3 104.3 0 0 0 0 147 104.3 104.3 0 0 0 147 0 104.3 104.3 0 0 0 0-147A104.3 104.3 0 0 0 128 24Z" stroke="#9370DB" stroke-opacity=".5" stroke-width="16"/>
-    <path d="M128 24v208" stroke="#9370DB" stroke-opacity=".5" stroke-width="16"/>
-    <ellipse cx="128" cy="128" rx="52" ry="104" stroke="#9370DB" stroke-opacity=".5" stroke-width="16"/>
-    <ellipse cx="128" cy="128" rx="104" ry="36" stroke="#9370DB" stroke-opacity=".5" stroke-width="16"/>
-    <path d="M104 96v64h12V120h24v40h12V96h-12v16h-24V96h-12Z" fill="#4B2E72"/>
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40Z" fill="#4B2E72"/>
+    <path d="M20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0ZM28.3333 11.6667V28.3333H25V21.6667H15V28.3333H11.6667V11.6667H15V18.3333H25V11.6667H28.3333Z" fill="#9370DB"/>
   </svg>
 );
 
@@ -118,12 +113,12 @@ export default function HackTheNet() {
   
   const prizes = [
     { icon: <Trophy className="h-8 w-8 text-amber-400" />, title: "Grand Prize", text: "$5,000 cash, plus high-end gear from our sponsors and a featured spot on our blog." },
-    { icon: <Trophy className="h-8 w-8 text-slate-300" />, title: "Path Winners", text: "$1,500 for the best project in each path: Open Internet, AI x DevTools, and Cybersecurity." },
+    { icon: <Trophy className="h-8 w-8 text-slate-300" />, title: "Path Winners", text: "$1,500 for the best project in each path: Hard Coding, AI-Powered App Generation, and Cybersecurity." },
     { icon: <Trophy className="h-8 w-8 text-orange-400" />, title: "Best Wildcard", text: "$1,000 for the most creative, fun, or surprising 'Wildcard' project." },
   ];
 
   const faqs = [
-    { q: "Who can participate?", a: "Students, professionals, and beginners are welcome. Form a team of up to 4 or hack solo—your call." },
+    { q: "Who can participate?", a: "Students, professionals, and beginners are welcome. Form a team of up to 4 or hack solo." },
     { q: "What should I bring?", a: "Laptop, chargers, valid ID, and anything you need to be comfy (hoodie, water bottle, etc.). We provide power and Wi-Fi." },
     { q: "Is it free?", a: "Yes! Thanks to our sponsors, admission is free for accepted hackers." },
     { q: "Do I need an idea beforehand?", a: "Nope. We'll run team-forming sessions and idea jams to help you get rolling." },

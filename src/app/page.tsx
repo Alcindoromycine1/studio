@@ -130,13 +130,15 @@ export default function HackTheNet() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen text-foreground">
       <Starfield
         starCount={1000}
         starColor={[255, 255, 255]}
         speedFactor={0.05}
         backgroundColor="black"
       />
+      <div className="fixed inset-0 -z-10 bg-background/70"></div>
+      
       <motion.div
         initial="hidden" animate="visible" variants={fadeIn}
         className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
@@ -413,5 +415,7 @@ export default function HackTheNet() {
     </div>
   );
 }
+
+    
 
     

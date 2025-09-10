@@ -94,9 +94,9 @@ export default function HackTheNet() {
 
   const perks = [
     { icon: <Globe className="h-5 w-5" />, title: "Global Connection", text: "Collaborate with hackers from around the world in our virtual workspace." },
-    { icon: <Users className="h-5 w-5" />, title: "Virtual Mentorship", text: "Get 1:1 guidance from industry experts through dedicated video channels." },
-    { icon: <Gift className="h-5 w-5" />, title: "Digital Prizes & Swag", text: "Win awesome digital rewards and get swag delivered to your door." },
-    { icon: <Video className="h-5 w-5" />, title: "Online Workshops", text: "Live-streamed workshops and tutorials to help you get started." },
+    { icon: <Users className="h-5 w-5" />, title: "Teams", text: "Choose teams of up to 4 people." },
+    { icon: <Gift className="h-5 w-5" />, title: "Prizes", text: <>Total Cash prizes up to <span className="font-bold">$500</span> plus your very own project for your portfolio.</> },
+    { icon: <Video className="h-5 w-5" />, title: "Workshops", text: "Giving you an in-depth tutorial on how to start and take off on this hackathon." },
   ];
 
   const paths = [
@@ -352,5 +352,3 @@ export default function HackTheNet() {
     </div>
   );
 }
-
-    

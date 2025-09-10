@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Hack The Net Hub',
+  title: 'Hack The Net',
   description: 'Build boldly. Ship fast. Hack the future of the open internet.',
 };
 

@@ -23,8 +23,6 @@ export function Starfield({
     {
       x: number;
       y: number;
-      startX: number;
-      startY: number;
       endX: number;
       endY: number;
       size: number;
@@ -52,8 +50,6 @@ export function Starfield({
         const startX = Math.random() * canvas.width;
         const startY = Math.random() * canvas.height;
         starsRef.current.push({
-          startX: startX,
-          startY: startY,
           x: startX,
           y: startY,
           endX: Math.random() * canvas.width,
@@ -79,8 +75,8 @@ export function Starfield({
         const distance = Math.sqrt(dirX * dirX + dirY * dirY);
 
         if (distance < 1) {
-          star.x = star.startX;
-          star.y = star.startY;
+          star.endX = Math.random() * canvas.width;
+          star.endY = Math.random() * canvas.height;
         } else {
           const normalizedDirX = dirX / distance;
           const normalizedDirY = dirY / distance;

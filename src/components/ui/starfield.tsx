@@ -25,10 +25,10 @@ export function Starfield({
       y: number;
       size: number;
       opacity: number;
-      speed: number;
+      dx: number;
+      dy: number;
     }[]
   >([]);
-  const scrollYRef = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -45,93 +45,79 @@ export function Starfield({
     };
 
     const initStars = () => {
-      const numClusters = Math.floor(starCount / 50);
-      for (let i = 0; i < numClusters; i++) {
-        const clusterX = Math.random() * canvas.width;
-        const clusterY = Math.random() * canvas.height;
-        const clusterSize = Math.random() * 30 + 20;
+        const speed = 0.05 * speedFactor;
+        const numClusters = Math.floor(starCount / 50);
+        for (let i = 0; i < numClusters; i++) {
+            const clusterX = Math.random() * canvas.width;
+            const clusterY = Math.random() * canvas.height;
+            const clusterSize = Math.random() * 30 + 20;
 
-        for (let j = 0; j < clusterSize; j++) {
-          const angle = Math.random() * 2 * Math.PI;
-          const radius = Math.random() * 50;
-          starsRef.current.push({
-            x: clusterX + Math.cos(angle) * radius,
-            y: clusterY + Math.sin(angle) * radius,
+            for (let j = 0; j < clusterSize; j++) {
+            const angle = Math.random() * 2 * Math.PI;
+            const radius = Math.random() * 50;
+            const velocityAngle = Math.random() * 2 * Math.PI;
+            const velocity = (Math.random() * 2 + 0.1) * speed;
+            starsRef.current.push({
+                x: clusterX + Math.cos(angle) * radius,
+                y: clusterY + Math.sin(angle) * radius,
+                size: Math.random() * 1.5 + 0.5,
+                opacity: Math.random() * 0.5 + 0.2,
+                dx: Math.cos(velocityAngle) * velocity,
+                dy: Math.sin(velocityAngle) * velocity,
+            });
+            }
+        }
+
+        const remainingStars = starCount - starsRef.current.length;
+        for (let i = 0; i < remainingStars; i++) {
+            const velocityAngle = Math.random() * 2 * Math.PI;
+            const velocity = (Math.random() * 2 + 0.1) * speed;
+            starsRef.current.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
             size: Math.random() * 1.5 + 0.5,
             opacity: Math.random() * 0.5 + 0.2,
-            speed: Math.random() * 0.1 + 0.01,
-          });
+            dx: Math.cos(velocityAngle) * velocity,
+            dy: Math.sin(velocityAngle) * velocity,
+            });
         }
-      }
-
-      // Add remaining stars scattered
-      const remainingStars = starCount - starsRef.current.length;
-      for (let i = 0; i < remainingStars; i++) {
-        starsRef.current.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: Math.random() * 1.5 + 0.5,
-          opacity: Math.random() * 0.5 + 0.2,
-          speed: Math.random() * 0.1 + 0.01,
-        });
-      }
     };
 
     let animationFrameId: number;
 
-    const draw = (scrollDelta: number) => {
+    const draw = () => {
       ctx.fillStyle = backgroundColor;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const [r, g, b] = starColor;
 
       starsRef.current.forEach((star) => {
-        const trailLength = Math.abs(scrollDelta) * star.speed * speedFactor;
-        const yPos = (star.y - scrollYRef.current * star.speed) % canvas.height;
+        star.x += star.dx;
+        star.y += star.dy;
 
-        // Star itself
+        if (star.x < 0 || star.x > canvas.width || star.y < 0 || star.y > canvas.height) {
+            star.x = Math.random() * canvas.width;
+            star.y = Math.random() * canvas.height;
+        }
+
         ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${star.opacity})`;
         ctx.beginPath();
-        ctx.arc(star.x, yPos < 0 ? yPos + canvas.height : yPos, star.size, 0, 2 * Math.PI);
+        ctx.arc(star.x, star.y, star.size, 0, 2 * Math.PI);
         ctx.fill();
-        
-        // Contrail
-        if (trailLength > 0.1) {
-            ctx.beginPath();
-            ctx.moveTo(star.x, yPos < 0 ? yPos + canvas.height : yPos);
-            const endY = yPos - Math.sign(scrollDelta) * trailLength;
-            ctx.lineTo(star.x, endY < 0 ? endY + canvas.height : endY % canvas.height);
-            ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${star.opacity * 0.5})`;
-            ctx.lineWidth = star.size;
-            ctx.stroke();
-        }
       });
     };
     
-    let lastScrollY = window.scrollY;
-    let scrollDelta = 0;
-    
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      scrollDelta = currentScrollY - lastScrollY;
-      scrollYRef.current = currentScrollY;
-      lastScrollY = currentScrollY;
-    };
-    
     const animate = () => {
-        draw(scrollDelta);
-        scrollDelta *= 0.95; // Dampen the delta for smooth trail disappearance
+        draw();
         animationFrameId = requestAnimationFrame(animate);
     }
     
     window.addEventListener("resize", resizeCanvas);
-    window.addEventListener("scroll", handleScroll);
     resizeCanvas();
     animate();
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
-      window.removeEventListener("scroll", handleScroll);
       cancelAnimationFrame(animationFrameId);
     };
   }, [starCount, starColor, speedFactor, backgroundColor]);

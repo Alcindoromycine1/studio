@@ -1,12 +1,16 @@
 "use client";
 
 import { Instagram, Mail } from "lucide-react";
-import { Logo } from "./logo";
+import Image from "next/image";
 
 const EVENT = {
   name: "Hack The Net",
   sponsorEmail: "hackthenethackathon@gmail.com",
 };
+
+const Logo = () => (
+    <Image src="/2f18046a-8bfc-4d10-a0dd-ed922cbbda08.png" alt="Hack The Net Logo" width={40} height={40} />
+);
 
 export function Footer() {
   return (

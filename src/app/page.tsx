@@ -87,7 +87,7 @@ export default function HackTheNet() {
 
   const perks = [
     { icon: <Globe className="h-5 w-5" />, title: "Global Connection", text: "Collaborate with hackers from around the world in our virtual workspace." },
-    { icon: <Users className="h-5 w-5" />, title: "Teams", text: "Grab your friends (or make new ones on the spot) and build your dream squadteams can be up to 4 people." },
+    { icon: <Users className="h-5 w-5" />, title: "Teams", text: "Grab your friends and build your dream squad. Teams are up to 4 people." },
     { icon: <Gift className="h-5 w-5" />, title: "Prizes", text: <>Total Cash prizes up to <span className="font-bold">$500</span> plus your very own project for your portfolio.</> },
     { icon: <Video className="h-5 w-5" />, title: "Workshops", text: "Giving you an in-depth tutorial on how to start and take off on this hackathon." },
   ];
@@ -352,5 +352,3 @@ export default function HackTheNet() {
     </div>
   );
 }
-
-    

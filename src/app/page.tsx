@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
+import { Starfield } from "@/components/ui/starfield";
 
 const EVENT = {
   name: "Hack The Net",
@@ -130,6 +131,12 @@ export default function HackTheNet() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <Starfield
+        starCount={1000}
+        starColor={[255, 255, 255]}
+        speedFactor={0.05}
+        backgroundColor="black"
+      />
       <motion.div
         initial="hidden" animate="visible" variants={fadeIn}
         className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"

@@ -6,24 +6,21 @@ import { cn } from "@/lib/utils";
 interface Star {
   x: number;
   y: number;
-  vx: number;
-  vy: number;
   radius: number;
   opacity: number;
   phase: number;
+  speed: number;
 }
 
 interface StarfieldProps extends React.ComponentProps<"canvas"> {
   starCount?: number;
   starColor?: [number, number, number];
-  speedFactor?: number;
   backgroundColor?: string;
 }
 
 export function Starfield({
   starCount = 1000,
   starColor = [255, 255, 255],
-  speedFactor = 0.05,
   backgroundColor = "black",
   className,
   ...props
@@ -42,17 +39,34 @@ export function Starfield({
     const makeStar = (): Star => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * speedFactor * 2,
-      vy: (Math.random() - 0.5) * speedFactor * 2,
       radius: Math.random() * 1.2 + 0.5,
-      opacity: Math.random() * 0.5 + 0.2,
+      opacity: 0,
       phase: Math.random() * Math.PI * 2,
+      speed: Math.random() * 0.02 + 0.01,
     });
 
     const initStars = () => {
       starsRef.current = [];
-      for (let i = 0; i < starCount; i++) {
-        starsRef.current.push(makeStar());
+      const numClusters = Math.floor(starCount / 100);
+      const starsPerCluster = starCount / numClusters;
+
+      for (let i = 0; i < numClusters; i++) {
+        const clusterX = Math.random() * canvas.width;
+        const clusterY = Math.random() * canvas.height;
+        const clusterRadius = Math.random() * 200 + 100;
+
+        for (let j = 0; j < starsPerCluster; j++) {
+          const angle = Math.random() * 2 * Math.PI;
+          const distance = Math.sqrt(Math.random()) * clusterRadius;
+          starsRef.current.push({
+            x: clusterX + Math.cos(angle) * distance,
+            y: clusterY + Math.sin(angle) * distance,
+            radius: Math.random() * 1.2 + 0.5,
+            opacity: 0,
+            phase: Math.random() * Math.PI * 2,
+            speed: Math.random() * 0.02 + 0.01,
+          });
+        }
       }
     };
 
@@ -72,30 +86,9 @@ export function Starfield({
     };
 
     const update = () => {
-      if (!canvas) return;
       starsRef.current.forEach((star) => {
-        star.x += star.vx;
-        star.y += star.vy;
-
-        // Wander
-        star.vx += (Math.random() - 0.5) * 0.001;
-        star.vy += (Math.random() - 0.5) * 0.001;
-
-        // Wrap edges
-        if (star.x < -star.radius) {
-          star.x = canvas.width + star.radius;
-        } else if (star.x > canvas.width + star.radius) {
-          star.x = -star.radius;
-        }
-        if (star.y < -star.radius) {
-          star.y = canvas.height + star.radius;
-        } else if (star.y > canvas.height + star.radius) {
-          star.y = -star.radius;
-        }
-
-        // Twinkle
-        star.phase += 0.03;
-        star.opacity = 0.2 + (Math.sin(star.phase) + 1) * 0.15;
+        star.phase += star.speed;
+        star.opacity = (Math.sin(star.phase) + 1) / 2 * 0.7 + 0.1; // Oscillates between 0.1 and 0.8
       });
     };
 
@@ -107,17 +100,11 @@ export function Starfield({
 
     const handleResize = () => {
       if (!canvas) return;
+    
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-
-      // Adjust star count without nuking existing ones
-      if (starsRef.current.length < starCount) {
-        while (starsRef.current.length < starCount) {
-          starsRef.current.push(makeStar());
-        }
-      } else if (starsRef.current.length > starCount) {
-        starsRef.current = starsRef.current.slice(0, starCount);
-      }
+      
+      initStars();
     };
 
     // Setup
@@ -134,7 +121,7 @@ export function Starfield({
         cancelAnimationFrame(animationFrameId.current);
       }
     };
-  }, [starCount, starColor, speedFactor, backgroundColor]);
+  }, [starCount, starColor, backgroundColor]);
 
   return (
     <canvas

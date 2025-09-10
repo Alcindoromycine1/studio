@@ -317,7 +317,6 @@ export default function HackTheNet() {
             <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mx-auto max-w-7xl px-4">
                 <div className="mx-auto max-w-2xl text-center">
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Meet The Judges</h2>
-                    <p className="mt-4 text-lg text-neutral-300">Our panel of experts, innovators, and industry leaders.</p>
                 </div>
                 <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
                     {judges.map((judge, i) => (

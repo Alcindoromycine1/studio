@@ -127,9 +127,9 @@ export default function HackTheNet() {
   ];
 
   const judges = [
-    { name: "Ricky Phan", title: "Videographer, Social Media manager", image: "https://picsum.photos/seed/1/300/300", hint: "person" },
-    { name: "Noah Sussman", title: "Organizer, Logistics", image: "https://picsum.photos/seed/2/300/300", hint: "person" },
-    { name: "Akhilan Saravanan", title: "Organizer, Logistics", image: "https://picsum.photos/seed/3/300/300", hint: "person" },
+    { name: "Ricky Phan", title: "Videographer, Social Media Manager", image: "https://picsum.photos/seed/1/300/300", hint: "person" },
+    { name: "Noah Sussman", title: "Director of Logistics", image: "https://picsum.photos/seed/2/300/300", hint: "person" },
+    { name: "Akhilan Saravanan", title: "Sponsorship/Financial coordinator", image: "https://picsum.photos/seed/3/300/300", hint: "person" },
     { name: "Rudra Garg", title: "Social Media Intern, Video Editor", image: "https://picsum.photos/seed/4/300/300", hint: "person" },
   ];
 

@@ -23,8 +23,6 @@ export function Starfield({
     {
       x: number;
       y: number;
-      endX: number;
-      endY: number;
       size: number;
       opacity: number;
     }[]
@@ -37,53 +35,28 @@ export function Starfield({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      starsRef.current = [];
-      initStars();
-    };
-
-    const initStars = () => {
-      starsRef.current = [];
-      for (let i = 0; i < starCount; i++) {
-        const startX = Math.random() * canvas.width;
-        const startY = Math.random() * canvas.height;
-        starsRef.current.push({
-          x: startX,
-          y: startY,
-          endX: Math.random() * canvas.width,
-          endY: Math.random() * canvas.height,
-          size: Math.random() * 1.5 + 0.5,
-          opacity: Math.random() * 0.5 + 0.2,
-        });
-      }
-    };
-
-    let animationFrameId: number;
-
     const draw = () => {
       if (!ctx || !canvas) return;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
       ctx.fillStyle = backgroundColor;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      if (starsRef.current.length === 0) {
+        for (let i = 0; i < starCount; i++) {
+          starsRef.current.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 1.5 + 0.5,
+            opacity: Math.random() * 0.5 + 0.2,
+          });
+        }
+      }
 
       const [r, g, b] = starColor;
 
       starsRef.current.forEach((star) => {
-        const dirX = star.endX - star.x;
-        const dirY = star.endY - star.y;
-        const distance = Math.sqrt(dirX * dirX + dirY * dirY);
-
-        if (distance < 1) {
-          star.endX = Math.random() * canvas.width;
-          star.endY = Math.random() * canvas.height;
-        } else {
-          const normalizedDirX = dirX / distance;
-          const normalizedDirY = dirY / distance;
-          star.x += normalizedDirX * speedFactor;
-          star.y += normalizedDirY * speedFactor;
-        }
-        
         ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${star.opacity})`;
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, 2 * Math.PI);
@@ -91,20 +64,19 @@ export function Starfield({
       });
     };
     
-    const animate = () => {
-        draw();
-        animationFrameId = requestAnimationFrame(animate);
-    }
-    
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-    animate();
+    draw();
+
+    const handleResize = () => {
+      starsRef.current = [];
+      draw();
+    };
+
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
-      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", handleResize);
     };
-  }, [starCount, starColor, speedFactor, backgroundColor]);
+  }, [starCount, starColor, backgroundColor]);
 
   return (
     <canvas

@@ -13,7 +13,7 @@ interface StarfieldProps extends React.ComponentProps<"canvas"> {
 export function Starfield({
   starCount = 1000,
   starColor = [255, 255, 255],
-  speedFactor = 0.05,
+  speedFactor = 1,
   backgroundColor = "black",
   className,
   ...props
@@ -23,10 +23,12 @@ export function Starfield({
     {
       x: number;
       y: number;
+      startX: number;
+      startY: number;
+      endX: number;
+      endY: number;
       size: number;
       opacity: number;
-      dx: number;
-      dy: number;
     }[]
   >([]);
 
@@ -45,61 +47,47 @@ export function Starfield({
     };
 
     const initStars = () => {
-        const speed = 0.05 * speedFactor;
-        const numClusters = Math.floor(starCount / 50);
-        for (let i = 0; i < numClusters; i++) {
-            const clusterX = Math.random() * canvas.width;
-            const clusterY = Math.random() * canvas.height;
-            const clusterSize = Math.random() * 30 + 20;
-
-            for (let j = 0; j < clusterSize; j++) {
-            const angle = Math.random() * 2 * Math.PI;
-            const radius = Math.random() * 50;
-            const velocityAngle = Math.random() * 2 * Math.PI;
-            const velocity = (Math.random() * 2 + 0.1) * speed;
-            starsRef.current.push({
-                x: clusterX + Math.cos(angle) * radius,
-                y: clusterY + Math.sin(angle) * radius,
-                size: Math.random() * 1.5 + 0.5,
-                opacity: Math.random() * 0.5 + 0.2,
-                dx: Math.cos(velocityAngle) * velocity,
-                dy: Math.sin(velocityAngle) * velocity,
-            });
-            }
-        }
-
-        const remainingStars = starCount - starsRef.current.length;
-        for (let i = 0; i < remainingStars; i++) {
-            const velocityAngle = Math.random() * 2 * Math.PI;
-            const velocity = (Math.random() * 2 + 0.1) * speed;
-            starsRef.current.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            size: Math.random() * 1.5 + 0.5,
-            opacity: Math.random() * 0.5 + 0.2,
-            dx: Math.cos(velocityAngle) * velocity,
-            dy: Math.sin(velocityAngle) * velocity,
-            });
-        }
+      starsRef.current = [];
+      for (let i = 0; i < starCount; i++) {
+        const startX = Math.random() * canvas.width;
+        const startY = Math.random() * canvas.height;
+        starsRef.current.push({
+          startX: startX,
+          startY: startY,
+          x: startX,
+          y: startY,
+          endX: Math.random() * canvas.width,
+          endY: Math.random() * canvas.height,
+          size: Math.random() * 1.5 + 0.5,
+          opacity: Math.random() * 0.5 + 0.2,
+        });
+      }
     };
 
     let animationFrameId: number;
 
     const draw = () => {
+      if (!ctx || !canvas) return;
       ctx.fillStyle = backgroundColor;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const [r, g, b] = starColor;
 
       starsRef.current.forEach((star) => {
-        star.x += star.dx;
-        star.y += star.dy;
+        const dirX = star.endX - star.x;
+        const dirY = star.endY - star.y;
+        const distance = Math.sqrt(dirX * dirX + dirY * dirY);
 
-        if (star.x < 0) star.x = canvas.width;
-        if (star.x > canvas.width) star.x = 0;
-        if (star.y < 0) star.y = canvas.height;
-        if (star.y > canvas.height) star.y = 0;
-
+        if (distance < 1) {
+          star.x = star.startX;
+          star.y = star.startY;
+        } else {
+          const normalizedDirX = dirX / distance;
+          const normalizedDirY = dirY / distance;
+          star.x += normalizedDirX * speedFactor;
+          star.y += normalizedDirY * speedFactor;
+        }
+        
         ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${star.opacity})`;
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, 2 * Math.PI);
@@ -133,4 +121,3 @@ export function Starfield({
     />
   );
 }
-    

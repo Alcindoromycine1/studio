@@ -95,10 +95,10 @@ export function Starfield({
         star.x += star.dx;
         star.y += star.dy;
 
-        if (star.x < 0 || star.x > canvas.width || star.y < 0 || star.y > canvas.height) {
-            star.x = Math.random() * canvas.width;
-            star.y = Math.random() * canvas.height;
-        }
+        if (star.x < 0) star.x = canvas.width;
+        if (star.x > canvas.width) star.x = 0;
+        if (star.y < 0) star.y = canvas.height;
+        if (star.y > canvas.height) star.y = 0;
 
         ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${star.opacity})`;
         ctx.beginPath();

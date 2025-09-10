@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Rocket, Calendar, Network, Users, Gift, Shield, Code, Cpu, Globe, Timer, ChevronRight, Mail, Trophy, Palette, Video, Wrench, Instagram } from "lucide-react";
+import { Rocket, Calendar, Network, Users, Gift, Shield, Code, Cpu, Globe, Timer, ChevronRight, Mail, Trophy, Palette, Video, Wrench, Instagram, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -18,6 +18,7 @@ const EVENT = {
   registrationUrl: "https://app.youform.com/forms/t57t7025",
   sponsorEmail: "hackthenethackathon@gmail.com",
   discordUrl: "https://discord.com/invite/deBB7QCqKn",
+  linkedinUrl: "https://www.linkedin.com/company/hack-the-net/about/",
 };
 
 function useCountdown(targetDate: Date) {
@@ -355,6 +356,10 @@ export default function HackTheNet() {
               <a href={EVENT.discordUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-accent hover:underline">
                 <DiscordIcon className="h-4 w-4" />
                 Join our Discord
+              </a>
+              <a href={EVENT.linkedinUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-accent hover:underline">
+                <Linkedin className="h-4 w-4" />
+                LinkedIn
               </a>
             </div>
           </div>

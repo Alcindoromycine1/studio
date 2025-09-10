@@ -261,18 +261,29 @@ export default function HackTheNet() {
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Prizes & Glory</h2>
               <p className="mt-4 text-lg text-neutral-300">Win incredible prizes, and more importantly, eternal bragging rights.</p>
             </div>
-            <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
-              {prizes.map((prize, i) => (
-                <motion.div key={prize.title} variants={fadeInUp} transition={{ delay: i * 0.1 }}>
-                  <Card className="h-full border-border bg-card text-center">
-                    <CardHeader className="items-center">
-                      <div className="mb-4 grid h-16 w-16 place-items-center rounded-full bg-secondary">{prize.icon}</div>
-                      <CardTitle>{prize.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent><p className="text-neutral-300">{prize.text}</p></CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+            <div className="mt-16 grid grid-cols-1 gap-8">
+              <motion.div variants={fadeInUp}>
+                <Card className="border-border bg-card text-center">
+                  <CardHeader className="items-center">
+                    <div className="mb-4 grid h-16 w-16 place-items-center rounded-full bg-secondary">{prizes[0].icon}</div>
+                    <CardTitle>{prizes[0].title}</CardTitle>
+                  </CardHeader>
+                  <CardContent><p className="text-neutral-300">{prizes[0].text}</p></CardContent>
+                </Card>
+              </motion.div>
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                {prizes.slice(1).map((prize, i) => (
+                  <motion.div key={prize.title} variants={fadeInUp} transition={{ delay: (i + 1) * 0.1 }}>
+                    <Card className="h-full border-border bg-card text-center">
+                      <CardHeader className="items-center">
+                        <div className="mb-4 grid h-16 w-16 place-items-center rounded-full bg-secondary">{prize.icon}</div>
+                        <CardTitle>{prize.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent><p className="text-neutral-300">{prize.text}</p></CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </section>

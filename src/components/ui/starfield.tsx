@@ -84,6 +84,7 @@ export function Starfield({
     };
     
     const update = () => {
+      if (!canvas) return;
         starsRef.current.forEach((star) => {
             star.x += star.vx;
             star.y += star.vy;
@@ -92,12 +93,17 @@ export function Starfield({
             star.vx += (Math.random() - 0.5) * 0.001;
             star.vy += (Math.random() - 0.5) * 0.001;
 
-            // Bounce off edges
-            if (star.x - star.radius < 0 || star.x + star.radius > canvas.width) {
-              star.vx = -star.vx;
+            // Wrap around screen edges
+            if (star.x < -star.radius) {
+              star.x = canvas.width + star.radius;
+            } else if (star.x > canvas.width + star.radius) {
+              star.x = -star.radius;
             }
-            if (star.y - star.radius < 0 || star.y + star.radius > canvas.height) {
-              star.vy = -star.vy;
+
+            if (star.y < -star.radius) {
+              star.y = canvas.height + star.radius;
+            } else if (star.y > canvas.height + star.radius) {
+              star.y = -star.radius;
             }
 
             // Twinkle

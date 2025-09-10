@@ -126,6 +126,13 @@ export default function HackTheNet() {
     { icon: <Trophy className="h-8 w-8 text-orange-400" />, title: "Best Wildcard", text: "$1,000 for the most creative, fun, or surprising 'Wildcard' project." },
   ];
 
+  const judges = [
+    { name: "Alex Chen", title: "Principal Engineer, Google", image: "https://picsum.photos/seed/1/300/300", hint: "person" },
+    { name: "Brenda Smith", title: "Founder, AI for Good", image: "https://picsum.photos/seed/2/300/300", hint: "person" },
+    { name: "Charlie Day", title: "Cybersecurity Expert", image: "https://picsum.photos/seed/3/300/300", hint: "person" },
+    { name: "Diana Prince", title: "UX Design Lead, Amazon", image: "https://picsum.photos/seed/4/300/300", hint: "person" },
+  ];
+
   const faqs = [
     { q: "Who can participate?", a: "Students, professionals, and beginners are welcome. Form a team of up to 4 or hack solo." },
     { q: "Is it free?", a: "Yes! Admission is free for everyone!" },
@@ -153,7 +160,7 @@ export default function HackTheNet() {
             <span className="text-lg font-semibold">{EVENT.name}</span>
           </a>
           <nav className="hidden gap-6 md:flex">
-            {["About", "Paths", "Schedule", "Prizes", "FAQ"].map((link) => (
+            {["About", "Paths", "Schedule", "Prizes", "Judges", "FAQ"].map((link) => (
               <motion.div
                 key={link}
                 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}
@@ -300,6 +307,30 @@ export default function HackTheNet() {
                     </CardHeader>
                     <CardContent><p className="text-neutral-300">{prize.text}</p></CardContent>
                   </Card>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </section>
+
+        <section id="judges" className="py-20 sm:py-32">
+          <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mx-auto max-w-7xl px-4">
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Meet The Judges</h2>
+              <p className="mt-4 text-lg text-neutral-300">Our panel of experts, innovators, and industry leaders.</p>
+            </div>
+            <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+              {judges.map((judge, i) => (
+                <motion.div key={judge.name} variants={fadeInUp} transition={{ delay: i * 0.1 }}>
+                  <div className="space-y-4 text-center">
+                    <div className="relative mx-auto h-40 w-40 overflow-hidden rounded-full">
+                       <Image src={judge.image} alt={judge.name} width={300} height={300} className="h-full w-full object-cover" data-ai-hint={judge.hint}/>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold">{judge.name}</h3>
+                      <p className="text-accent">{judge.title}</p>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>

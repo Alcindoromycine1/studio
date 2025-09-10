@@ -77,17 +77,30 @@ const SmoothScrollLink = ({ href, children, ...props }: React.AnchorHTMLAttribut
 };
 
 const Logo = () => (
-    <svg width="40" height="40" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M128 256C198.705 256 256 198.705 256 128C256 57.2949 198.705 0 128 0C57.2949 0 0 57.2949 0 128C0 198.705 57.2949 256 128 256Z" fill="url(#paint0_linear_1_2)"/>
-        <path d="M182.889 61.2222V194.778H165.111V150.222H90.8889V194.778H73.1111V61.2222H90.8889V123.556H165.111V61.2222H182.889Z" fill="white"/>
-        <defs>
-            <linearGradient id="paint0_linear_1_2" x1="128" y1="0" x2="128" y2="256" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#4B2E72"/>
-                <stop offset="1" stopColor="#9370DB"/>
-            </linearGradient>
-        </defs>
+    <svg width="40" height="40" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="95" fill="#1A1A2E" />
+        <circle cx="100" cy="100" r="80" stroke="#9370DB" strokeWidth="1" strokeOpacity="0.5" />
+        {/* Grid lines */}
+        <path d="M100 20C144.183 20 180 55.8172 180 100C180 144.183 144.183 180 100 180C55.8172 180 20 144.183 20 100C20 55.8172 55.8172 20 100 20Z" stroke="#9370DB" strokeWidth="1" strokeOpacity="0.5" />
+        <path d="M100 20 V180" stroke="#9370DB" strokeWidth="1" strokeOpacity="0.5"/>
+        <path d="M20 100 H180" stroke="#9370DB" strokeWidth="1" strokeOpacity="0.5"/>
+        <ellipse cx="100" cy="100" rx="40" ry="80" stroke="#9370DB" strokeWidth="1" strokeOpacity="0.5" transform="rotate(0 100 100)" />
+        <ellipse cx="100" cy="100" rx="65" ry="80" stroke="#9370DB" strokeWidth="1" strokeOpacity="0.5" transform="rotate(0 100 100)" />
+        <ellipse cx="100" cy="100" rx="80" ry="40" stroke="#9370DB" strokeWidth="1" strokeOpacity="0.5" transform="rotate(0 100 100)" />
+        <ellipse cx="100" cy="100" rx="80" ry="65" stroke="#9370DB" strokeWidth="1" strokeOpacity="0.5" transform="rotate(0 100 100)" />
+        {/* H letter */}
+        <path d="M85 125 V 95 H 115 V 125" stroke="#4B2E72" strokeWidth="16" strokeLinejoin="round" />
+        <path d="M85 125 V 95 H 115 V 125" stroke="#6A4C9C" strokeWidth="12" strokeLinejoin="round" />
+        <path d="M92 105 L 88 102" stroke="#4B2E72" strokeWidth="1.5" />
+        <path d="M108 98 L 112 101" stroke="#4B2E72" strokeWidth="1.5" />
+        <path d="M110 118 L 114 120" stroke="#4B2E72" strokeWidth="1.5" />
+        {/* Fish */}
+        <path d="M65 95 C 68 92, 72 92, 75 95 C 72 98, 68 98, 65 95 Z" fill="#9370DB" />
+        <path d="M74 95.5 L 77 94" stroke="#9370DB" strokeWidth="1"/>
+        <path d="M74 94.5 L 77 96" stroke="#9370DB" strokeWidth="1"/>
     </svg>
 );
+
 
 export default function HackTheNet() {
   const countdown = useCountdown(EVENT.start);

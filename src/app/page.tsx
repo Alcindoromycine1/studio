@@ -15,7 +15,7 @@ const EVENT = {
   end: new Date("2026-03-23T18:00:00-05:00"),
   location: "Virtual Hackathon",
   registrationUrl: "https://app.youform.com/forms/t57t7025",
-  sponsorEmail: "hackthenet@gmail.com",
+  sponsorEmail: "hackthenethackathon@gmail.com",
 };
 
 function useCountdown(targetDate: Date) {
@@ -344,9 +344,14 @@ export default function HackTheNet() {
               <Logo />
               <span className="font-semibold">{EVENT.name}</span>
             </div>
-            <p className="text-center text-sm text-neutral-400">
-              Sponsorship inquiries: <a href={`mailto:${EVENT.sponsorEmail}`} className="text-accent hover:underline">{EVENT.sponsorEmail}</a>
-            </p>
+            <div className="flex flex-col items-center gap-2 text-center text-sm text-neutral-400 sm:items-end">
+              <a href={`mailto:${EVENT.sponsorEmail}`} className="text-accent hover:underline">
+                {EVENT.sponsorEmail}
+              </a>
+              <a href="https://instagram.com/hackthenet2026" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+                @hackthenet2026
+              </a>
+            </div>
           </div>
         </div>
       </footer>

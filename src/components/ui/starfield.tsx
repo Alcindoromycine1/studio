@@ -39,35 +39,23 @@ export function Starfield({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const makeStar = (): Star => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * speedFactor * 2,
+      vy: (Math.random() - 0.5) * speedFactor * 2,
+      radius: Math.random() * 1.2 + 0.5,
+      opacity: Math.random() * 0.5 + 0.2,
+      phase: Math.random() * Math.PI * 2,
+    });
+
     const initStars = () => {
       starsRef.current = [];
-      const numClusters = 5;
-      const starsPerCluster = starCount / numClusters;
-      
-      for (let i = 0; i < numClusters; i++) {
-        const clusterX = Math.random() * canvas.width;
-        const clusterY = Math.random() * canvas.height;
-        const clusterRadius = Math.random() * (canvas.width / 4) + (canvas.width / 10);
-
-        for (let j = 0; j < starsPerCluster; j++) {
-            const angle = Math.random() * 2 * Math.PI;
-            const radius = Math.random() * clusterRadius;
-            const x = clusterX + Math.cos(angle) * radius * (Math.random() * 1.5);
-            const y = clusterY + Math.sin(angle) * radius * (Math.random() * 1.5);
-
-            starsRef.current.push({
-              x: x,
-              y: y,
-              vx: (Math.random() - 0.5) * speedFactor * 2,
-              vy: (Math.random() - 0.5) * speedFactor * 2,
-              radius: Math.random() * 1.2 + 0.5,
-              opacity: Math.random() * 0.5 + 0.2,
-              phase: Math.random() * Math.PI * 2,
-            });
-        }
+      for (let i = 0; i < starCount; i++) {
+        starsRef.current.push(makeStar());
       }
     };
-    
+
     const draw = () => {
       if (!ctx || !canvas) return;
       ctx.fillStyle = backgroundColor;
@@ -82,35 +70,34 @@ export function Starfield({
         ctx.fill();
       });
     };
-    
+
     const update = () => {
       if (!canvas) return;
-        starsRef.current.forEach((star) => {
-            star.x += star.vx;
-            star.y += star.vy;
-            
-            // Wander
-            star.vx += (Math.random() - 0.5) * 0.001;
-            star.vy += (Math.random() - 0.5) * 0.001;
+      starsRef.current.forEach((star) => {
+        star.x += star.vx;
+        star.y += star.vy;
 
-            // Wrap around screen edges
-            if (star.x < -star.radius) {
-              star.x = canvas.width + star.radius;
-            } else if (star.x > canvas.width + star.radius) {
-              star.x = -star.radius;
-            }
+        // Wander
+        star.vx += (Math.random() - 0.5) * 0.001;
+        star.vy += (Math.random() - 0.5) * 0.001;
 
-            if (star.y < -star.radius) {
-              star.y = canvas.height + star.radius;
-            } else if (star.y > canvas.height + star.radius) {
-              star.y = -star.radius;
-            }
+        // Wrap edges
+        if (star.x < -star.radius) {
+          star.x = canvas.width + star.radius;
+        } else if (star.x > canvas.width + star.radius) {
+          star.x = -star.radius;
+        }
+        if (star.y < -star.radius) {
+          star.y = canvas.height + star.radius;
+        } else if (star.y > canvas.height + star.radius) {
+          star.y = -star.radius;
+        }
 
-            // Twinkle
-            star.phase += 0.03;
-            star.opacity = 0.2 + (Math.sin(star.phase) + 1) * 0.15;
-        });
-    }
+        // Twinkle
+        star.phase += 0.03;
+        star.opacity = 0.2 + (Math.sin(star.phase) + 1) * 0.15;
+      });
+    };
 
     const animate = () => {
       update();
@@ -119,17 +106,27 @@ export function Starfield({
     };
 
     const handleResize = () => {
-      const canvas = canvasRef.current;
-      if (canvas) {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        initStars();
+      if (!canvas) return;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      // Adjust star count without nuking existing ones
+      if (starsRef.current.length < starCount) {
+        while (starsRef.current.length < starCount) {
+          starsRef.current.push(makeStar());
+        }
+      } else if (starsRef.current.length > starCount) {
+        starsRef.current = starsRef.current.slice(0, starCount);
       }
     };
-    
-    window.addEventListener("resize", handleResize);
-    handleResize(); // Initial setup
+
+    // Setup
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    initStars();
     animate();
+
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -142,10 +139,7 @@ export function Starfield({
   return (
     <canvas
       ref={canvasRef}
-      className={cn(
-        "fixed inset-0 -z-20 h-full w-full",
-        className
-      )}
+      className={cn("fixed inset-0 -z-20 h-full w-full", className)}
       {...props}
     />
   );

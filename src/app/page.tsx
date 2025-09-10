@@ -17,6 +17,7 @@ const EVENT = {
   location: "Virtual Hackathon",
   registrationUrl: "https://app.youform.com/forms/t57t7025",
   sponsorEmail: "hackthenethackathon@gmail.com",
+  discordUrl: "https://discord.com/invite/deBB7QCqKn",
 };
 
 function useCountdown(targetDate: Date) {
@@ -81,12 +82,23 @@ const Logo = () => (
     <Image src="/2f18046a-8bfc-4d10-a0dd-ed922cbbda08.png" alt="Hack The Net Logo" width={40} height={40} />
 );
 
+const DiscordIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    {...props}
+  >
+    <path d="M19.54 0c1.356 0 2.46 1.104 2.46 2.472v19.056c0 1.368-1.104 2.472-2.46 2.472h-15.08c-1.356 0-2.46-1.104-2.46-2.472v-19.056c0-1.368 1.104-2.472 2.46-2.472h15.08zm-2.883 5.249l-2.02 1.825c-1.218-.812-2.522-.812-3.74 0l-2.02-1.825c2.712-1.22 5.782-1.22 8.49 0zm-1.213 6.96h-1.35c-.135 0-.253.119-.253.253v.44c0 .135.119.253.253.253h1.35c.135 0 .253-.119.253-.253v-.44c0-.135-.119-.253-.253-.253zm-4.787 0h-1.35c-.135 0-.253.119-.253.253v.44c0 .135.119.253.253.253h1.35c.135 0 .253-.119.253-.253v-.44c0-.135-.119-.253-.253-.253zm-2.58 4.31c-1.422 0-2.58-1.158-2.58-2.58s1.158-2.58 2.58-2.58 2.58 1.158 2.58 2.58-1.158 2.58-2.58 2.58zm8.17 0c-1.422 0-2.58-1.158-2.58-2.58s1.158-2.58 2.58-2.58 2.58 1.158 2.58 2.58-1.158 2.58-2.58 2.58z" />
+  </svg>
+);
+
 
 export default function HackTheNet() {
   const countdown = useCountdown(EVENT.start);
 
   const perks = [
-    { icon: <Globe className="h-5 w-5" />, title: "Global Connection", text: "Collaborate with hackers from around the world in our virtual workspace." },
+    { icon: <Globe className="h-5 w-5" />, title: "Experience", text: "Acquire meaningful professional experience in Computer Science; enhance your knowledge. " },
     { icon: <Users className="h-5 w-5" />, title: "Teams", text: "Grab your friends and build your dream squad. Teams are up to 4 people." },
     { icon: <Gift className="h-5 w-5" />, title: "Prizes", text: <>Total Cash prizes up to <span className="font-bold">$500</span> plus your very own project for your portfolio.</> },
     { icon: <Video className="h-5 w-5" />, title: "Workshops", text: "Giving you an in-depth tutorial on how to start and take off on this hackathon." },
@@ -194,7 +206,7 @@ export default function HackTheNet() {
                     <div className="flex items-center gap-3">
                       <Timer className="h-5 w-5 text-neutral-300" />
                       <div>
-                        <p className="text-xs uppercase tracking-wide text-neutral-400">Countdown to kickoff</p>
+                        <p className="text-xs uppercase tracking-wide text-neutral-400">Countdown to Hackathon</p>
                         <p className="text-lg font-semibold tabular-nums">{countdown}</p>
                       </div>
                     </div>
@@ -344,6 +356,10 @@ export default function HackTheNet() {
               <a href="https://instagram.com/hackthenet2026" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-accent hover:underline">
                 <Instagram className="h-4 w-4" />
                 @hackthenet2026
+              </a>
+              <a href={EVENT.discordUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-accent hover:underline">
+                <DiscordIcon className="h-4 w-4" />
+                Join our Discord
               </a>
             </div>
           </div>

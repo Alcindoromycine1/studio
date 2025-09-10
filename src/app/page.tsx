@@ -127,10 +127,10 @@ export default function HackTheNet() {
   ];
 
   const judges = [
-    { name: "Alex Chen", title: "Principal Engineer, Google", image: "https://picsum.photos/seed/1/300/300", hint: "person" },
-    { name: "Brenda Smith", title: "Founder, AI for Good", image: "https://picsum.photos/seed/2/300/300", hint: "person" },
-    { name: "Charlie Day", title: "Cybersecurity Expert", image: "https://picsum.photos/seed/3/300/300", hint: "person" },
-    { name: "Diana Prince", title: "UX Design Lead, Amazon", image: "https://picsum.photos/seed/4/300/300", hint: "person" },
+    { name: "Ricky Phan", title: "Principal Engineer, Google", image: "https://picsum.photos/seed/1/300/300", hint: "person" },
+    { name: "Noah Sussman", title: "Founder, AI for Good", image: "https://picsum.photos/seed/2/300/300", hint: "person" },
+    { name: "Akhilan Saravanan", title: "Cybersecurity Expert", image: "https://picsum.photos/seed/3/300/300", hint: "person" },
+    { name: "Rudra Garg", title: "UX Design Lead, Amazon", image: "https://picsum.photos/seed/4/300/300", hint: "person" },
   ];
 
   const faqs = [

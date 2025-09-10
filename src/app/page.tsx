@@ -78,7 +78,7 @@ const SmoothScrollLink = ({ href, children, ...props }: React.AnchorHTMLAttribut
 };
 
 const Logo = () => (
-    <Image src="/logo.png" alt="Hack The Net Logo" width={40} height={40} />
+    <Image src="/2f18046a-8bfc-4d10-a0dd-ed922cbbda08.png" alt="Hack The Net Logo" width={40} height={40} />
 );
 
 
@@ -87,7 +87,7 @@ export default function HackTheNet() {
 
   const perks = [
     { icon: <Globe className="h-5 w-5" />, title: "Global Connection", text: "Collaborate with hackers from around the world in our virtual workspace." },
-    { icon: <Users className="h-5 w-5" />, title: "Teams", text: "Choose teams of up to 4 people." },
+    { icon: <Users className="h-5 w-5" />, title: "Teams", text: "Select up to 4 people of your choosing." },
     { icon: <Gift className="h-5 w-5" />, title: "Prizes", text: <>Total Cash prizes up to <span className="font-bold">$500</span> plus your very own project for your portfolio.</> },
     { icon: <Video className="h-5 w-5" />, title: "Workshops", text: "Giving you an in-depth tutorial on how to start and take off on this hackathon." },
   ];

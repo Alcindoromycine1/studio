@@ -108,17 +108,6 @@ export default function HackTheNet() {
     { icon: <Shield className="h-6 w-6" />, title: "Cybersecurity", text: "Secure the stack: detection, response, auth, and resilience." },
     { icon: <Palette className="h-6 w-6" />, title: "Vibecoding", text: "Create something beautiful, artistic, or just plain fun. The vibe is the only limit." },
   ];
-
-  const schedule = [
-    { time: "Day 1 — 3:00 PM", label: "Check-in & Team Formation" },
-    { time: "Day 1 — 6:00 PM", label: "Opening Ceremony + Keynote" },
-    { time: "Day 1 — 7:30 PM", label: "Hacking Begins" },
-    { time: "Day 2 — 10:00 AM", label: "Workshops + Office Hours" },
-    { time: "Day 2 — 7:00 PM", label: "Mini-challenges & Demos" },
-    { time: "Day 3 — 12:00 PM", label: "Project Submission Deadline" },
-    { time: "Day 3 — 1:30 PM", label: "Judging & Expo" },
-    { time: "Day 3 — 5:00 PM", label: "Awards + Closing" },
-  ];
   
   const prizes = [
     { icon: <Trophy className="h-8 w-8 text-amber-400" />, title: "Grand Prize", text: "$5,000 cash, plus high-end gear from our sponsors and a featured spot on our blog." },
@@ -160,7 +149,7 @@ export default function HackTheNet() {
             <span className="text-lg font-semibold">{EVENT.name}</span>
           </a>
           <nav className="hidden gap-6 md:flex">
-            {["About", "Paths", "Schedule", "Prizes", "Judges", "FAQ"].map((link) => (
+            {["About", "Paths", "Prizes", "Judges", "FAQ"].map((link) => (
               <motion.div
                 key={link}
                 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}
@@ -266,31 +255,6 @@ export default function HackTheNet() {
           </motion.div>
         </section>
         
-        <section id="schedule" className="py-20 sm:py-32">
-          <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mx-auto max-w-7xl px-4">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Event Schedule</h2>
-              <p className="mt-4 text-lg text-neutral-300">48 hours of building, learning, and connecting. Here's what to expect.</p>
-            </div>
-            <div className="mt-16 flow-root">
-              <div className="-my-8">
-                {schedule.map((item, i) => (
-                  <div key={i} className="relative py-8">
-                    {i < schedule.length -1 && <span className="absolute left-5 top-5 -ml-px h-full w-0.5 bg-border" aria-hidden="true" />}
-                    <motion.div variants={fadeInUp} className="relative flex items-center space-x-6">
-                      <div className="z-10 grid h-10 w-10 shrink-0 place-items-center rounded-full bg-primary"><Calendar className="h-5 w-5" /></div>
-                      <div>
-                        <p className="font-semibold">{item.label}</p>
-                        <p className="text-sm text-neutral-400">{item.time}</p>
-                      </div>
-                    </motion.div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </section>
-
         <section id="prizes" className="py-20 sm:py-32">
           <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mx-auto max-w-7xl px-4">
             <div className="mx-auto max-w-2xl text-center">

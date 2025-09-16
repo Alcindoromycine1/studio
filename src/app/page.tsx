@@ -104,10 +104,10 @@ export default function HackTheNet() {
   ];
   
   const aboutCards = [
-    { icon: <Target className="h-8 w-8 text-accent" />, title: "Theme & Goals", text: "The theme is 'Hack the Future'. Our goal is to empower students to learn, build, and innovate on the open internet." },
-    { icon: <Calendar className="h-8 w-8 text-accent" />, title: "Schedule", text: `A 9-day virtual event from ${EVENT.start.toLocaleDateString(undefined, { month: 'long', day: 'numeric' })} to ${EVENT.end.toLocaleDateString(undefined, { day: 'numeric', year: 'numeric' })}.` },
-    { icon: <Users2 className="h-8 w-8 text-accent" />, title: "Who It's For", text: "Open to all students, from seasoned coders to curious beginners. Everyone is welcome to join." },
-    { icon: <Group className="h-8 w-8 text-accent" />, title: "Team Size", text: "You can hack solo or form a team of up to 4 people. Collaborate and bring your ideas to life." },
+    { icon: <Calendar className="h-10 w-10 text-accent" />, title: "Schedule", text: `A 9-day virtual event from ${EVENT.start.toLocaleDateString(undefined, { month: 'long', day: 'numeric' })} to ${EVENT.end.toLocaleDateString(undefined, { day: 'numeric', year: 'numeric' })}.` },
+    { icon: <Users2 className="h-10 w-10 text-accent" />, title: "Who It's For", text: "Open to all students, from seasoned coders to curious beginners. Everyone is welcome to join." },
+    { icon: <Group className="h-10 w-10 text-accent" />, title: "Team Size", text: "You can hack solo or form a team of up to 4 people. Collaborate and bring your ideas to life." },
+    { icon: <Target className="h-10 w-10 text-accent" />, title: "[insert title]", text: "[insert body text]" },
   ];
 
   const prizes = [
@@ -236,18 +236,37 @@ export default function HackTheNet() {
                 Hack The Net is a 9-day virtual hackathon where students from across Canada come together to learn, build, and innovate.
               </p>
             </div>
-            <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2">
               {aboutCards.map((card, i) => (
-                <motion.div key={card.title} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
-                  <Card className="h-full border-border bg-card text-center transition-shadow hover:shadow-primary/20">
-                    <CardHeader className="items-center">
-                      <div className="grid h-16 w-16 place-items-center rounded-full bg-secondary text-accent">{card.icon}</div>
-                    </CardHeader>
-                    <CardContent>
-                      <CardTitle className="text-xl mb-2">{card.title}</CardTitle>
-                      <p className="text-neutral-300">{card.text}</p>
-                    </CardContent>
-                  </Card>
+                <motion.div
+                  key={card.title}
+                  className="relative h-48 overflow-hidden rounded-lg border border-border bg-card p-6 text-center"
+                  initial="initial"
+                  whileHover="hover"
+                  variants={{ initial: { y: 0 }, hover: { y: -8, shadow: '0 10px 20px -5px hsl(var(--primary) / 0.2)' } }}
+                  transition={{ duration: 0.3, ease: 'easeOut' }}
+                >
+                  <motion.div
+                    className="flex h-full flex-col items-center justify-center"
+                    variants={{
+                      initial: { y: 0, scale: 1 },
+                      hover: { y: -20, scale: 0.8 },
+                    }}
+                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                  >
+                    {card.icon}
+                  </motion.div>
+                  <motion.div
+                    className="absolute inset-0 flex flex-col items-center justify-end p-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    variants={{
+                      hover: { opacity: 1, y: 0 },
+                    }}
+                    transition={{ duration: 0.3, ease: 'easeOut', delay: 0.1 }}
+                  >
+                    <h3 className="text-xl font-bold">{card.title}</h3>
+                    <p className="mt-2 text-sm text-neutral-300">{card.text}</p>
+                  </motion.div>
                 </motion.div>
               ))}
             </div>
@@ -405,3 +424,5 @@ export default function HackTheNet() {
     </div>
   );
 }
+
+    

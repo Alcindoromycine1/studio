@@ -20,31 +20,41 @@ interface StarfieldProps extends React.ComponentProps<"canvas"> {
   starCount?: number;
   starColor?: [number, number, number];
   backgroundColor?: string;
+  repelRadius?: number;
+}
+
+interface MousePos {
+  x: number;
+  y: number;
+  inside: boolean;
 }
 
 export function Starfield({
-  starCount = 500,
+  starCount = 1000,
   starColor = [255, 255, 255],
   backgroundColor = "black",
+  repelRadius = 60,
   className,
   ...props
 }: StarfieldProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const starsRef = useRef<Star[]>([]);
   const animationFrameId = useRef<number | null>(null);
+  const mousePos = useRef<MousePos>({ x: 0, y: 0, inside: false });
 
   const initOrUpdateStars = (canvas: HTMLCanvasElement) => {
     const existingStars = starsRef.current;
     const newStars: Star[] = [];
+    const numStars = starCount;
 
-    const makeStar = (x?: number, y?: number): Star => {
-      const startX = x ?? Math.random() * canvas.width;
-      const startY = y ?? Math.random() * canvas.height;
+    const makeStar = (): Star => {
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height;
       return {
-        startX: startX,
-        startY: startY,
-        x: startX,
-        y: startY,
+        startX: x,
+        startY: y,
+        x: x,
+        y: y,
         vx: (Math.random() - 0.5) * 0.2,
         vy: (Math.random() - 0.5) * 0.2,
         radius: Math.random() * 0.8 + 0.4,
@@ -52,15 +62,14 @@ export function Starfield({
         phase: Math.random() * Math.PI * 2,
       };
     };
-    
-    // If starCount changes, adjust the array
-    if (existingStars.length > starCount) {
-        starsRef.current = existingStars.slice(0, starCount);
-    } else if (existingStars.length < starCount) {
-        for (let i = 0; i < starCount - existingStars.length; i++) {
-            newStars.push(makeStar());
-        }
-        starsRef.current = existingStars.concat(newStars);
+
+    if (existingStars.length > numStars) {
+      starsRef.current = existingStars.slice(0, numStars);
+    } else if (existingStars.length < numStars) {
+      for (let i = 0; i < numStars - existingStars.length; i++) {
+        newStars.push(makeStar());
+      }
+      starsRef.current = existingStars.concat(newStars);
     }
   };
 
@@ -71,9 +80,11 @@ export function Starfield({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    
+    let dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    ctx.scale(dpr, dpr);
+
     initOrUpdateStars(canvas);
 
     const update = () => {
@@ -82,39 +93,44 @@ export function Starfield({
         star.vx += (Math.random() - 0.5) * 0.01;
         star.vy += (Math.random() - 0.5) * 0.01;
         
-        // Clamp velocity
         star.vx = Math.max(-0.2, Math.min(0.2, star.vx));
         star.vy = Math.max(-0.2, Math.min(0.2, star.vy));
 
         star.x += star.vx;
         star.y += star.vy;
         
-        // Wrap around edges
-        if (star.x < 0) star.x = canvas.width;
-        if (star.x > canvas.width) star.x = 0;
-        if (star.y < 0) star.y = canvas.height;
-        if (star.y > canvas.height) star.y = 0;
+        if (star.x < 0) star.x = window.innerWidth;
+        if (star.x > window.innerWidth) star.x = 0;
+        if (star.y < 0) star.y = window.innerHeight;
+        if (star.y > window.innerHeight) star.y = 0;
 
-        // Twinkling opacity
         star.phase += 0.02;
         star.opacity = (Math.sin(star.phase) + 1) / 2 * 0.7 + 0.1;
       });
     };
 
     const draw = () => {
-        if (!ctx || !canvas) return;
-        ctx.fillStyle = backgroundColor;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      if (!ctx || !canvas) return;
+      ctx.fillStyle = backgroundColor;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
   
-        const [r, g, b] = starColor;
+      const [r, g, b] = starColor;
   
-        starsRef.current.forEach((star) => {
-          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${star.opacity})`;
-          ctx.beginPath();
-          ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
-          ctx.fill();
-        });
-      };
+      starsRef.current.forEach((star) => {
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${star.opacity})`;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+        ctx.fill();
+      });
+
+      if (mousePos.current.inside) {
+        ctx.beginPath();
+        ctx.arc(mousePos.current.x, mousePos.current.y, repelRadius, 0, 2 * Math.PI);
+        ctx.strokeStyle = "rgba(255,0,0,1)";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+    };
 
     const animate = () => {
       update();
@@ -125,21 +141,43 @@ export function Starfield({
     animate();
     
     const handleResize = () => {
-        if (!canvas) return;
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        initOrUpdateStars(canvas);
-      };
-  
+      if (!canvas) return;
+      dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      if (ctx) ctx.scale(dpr, dpr);
+      initOrUpdateStars(canvas);
+    };
+
+    const handlePointerMove = (e: PointerEvent | TouchEvent) => {
+        mousePos.current.inside = true;
+        const rect = canvas.getBoundingClientRect();
+        const event = 'touches' in e ? e.touches[0] : e;
+        mousePos.current.x = (event.clientX - rect.left);
+        mousePos.current.y = (event.clientY - rect.top);
+    };
+
+    const handlePointerLeave = () => {
+        mousePos.current.inside = false;
+    };
+
+    canvas.addEventListener("pointermove", handlePointerMove);
+    canvas.addEventListener("pointerleave", handlePointerLeave);
+    canvas.addEventListener("touchmove", handlePointerMove);
+    canvas.addEventListener("touchend", handlePointerLeave);
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      canvas.removeEventListener("pointermove", handlePointerMove);
+      canvas.removeEventListener("pointerleave", handlePointerLeave);
+      canvas.removeEventListener("touchmove", handlePointerMove);
+      canvas.removeEventListener("touchend", handlePointerLeave);
       if (animationFrameId.current) {
         cancelAnimationFrame(animationFrameId.current);
       }
     };
-  }, [starCount, starColor, backgroundColor]);
+  }, [starCount, starColor, backgroundColor, repelRadius]);
 
   return (
     <canvas

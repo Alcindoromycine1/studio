@@ -102,13 +102,6 @@ export default function HackTheNet() {
     { icon: <Gift className="h-5 w-5" />, title: "Prizes", text: <>Total Cash prizes up to <span className="font-bold">$500</span> plus your very own project for your portfolio.</> },
     { icon: <Video className="h-5 w-5" />, title: "Workshops", text: "Giving you an in-depth tutorial on how to start and take off on this hackathon." },
   ];
-
-  const paths = [
-    { icon: <Rocket className="h-6 w-6" />, title: "Hard Coding", text: "Show off your raw coding skills. Build from the ground up, optimize for performance, and solve complex challenges with pure algorithms." },
-    { icon: <Code className="h-6 w-6" />, title: "AI-Powered App Generation", text: "Use AI to write the code for your entire application, from frontend to backend." },
-    { icon: <Shield className="h-6 w-6" />, title: "Cybersecurity", text: "Secure the stack: detection, response, auth, and resilience." },
-    { icon: <Palette className="h-6 w-6" />, title: "Vibecoding", text: "Create something beautiful, artistic, or just plain fun. The vibe is the only limit." },
-  ];
   
   const prizes = [
     { icon: <Trophy className="h-8 w-8 text-amber-400" />, title: "Grand Prize", text: "$5,000 cash, plus high-end gear from our sponsors and a featured spot on our blog." },
@@ -131,12 +124,7 @@ export default function HackTheNet() {
 
   return (
     <div className="min-h-screen text-foreground">
-      <Starfield
-        starCount={1000}
-        starColor={[255, 255, 255]}
-        speedFactor={0.05}
-        backgroundColor="black"
-      />
+      <Starfield />
       <div className="fixed inset-0 -z-10 bg-background/70"></div>
       
       <header className="sticky top-0 z-50 backdrop-blur-lg supports-[backdrop-filter]:bg-background/60">
@@ -149,7 +137,7 @@ export default function HackTheNet() {
             <span className="text-lg font-semibold">{EVENT.name}</span>
           </a>
           <nav className="hidden gap-6 md:flex">
-            {["About", "Paths", "Prizes", "Judges", "FAQ"].map((link) => (
+            {["About", "Prizes", "Judges", "FAQ"].map((link) => (
               <motion.div
                 key={link}
                 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}
@@ -172,7 +160,7 @@ export default function HackTheNet() {
       </header>
 
       <main>
-        <section className="mx-auto max-w-7xl px-4 pb-10 pt-16 sm:pt-24" id="about">
+        <section className="mx-auto max-w-7xl px-4 pb-10 pt-16 sm:pt-24" id="home">
           <div className="grid items-center gap-8 md:grid-cols-2">
             <motion.div variants={fadeInUp} initial="hidden" animate="visible">
               <Badge className="mb-3 bg-gradient-to-r from-primary to-accent text-primary-foreground">9 day hackathon</Badge>
@@ -190,7 +178,7 @@ export default function HackTheNet() {
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <Button variant="secondary" asChild size="lg" className="rounded-xl">
-                    <SmoothScrollLink href="#paths">Explore Paths</SmoothScrollLink>
+                    <SmoothScrollLink href="#about">Learn More</SmoothScrollLink>
                   </Button>
                 </motion.div>
               </div>
@@ -233,24 +221,13 @@ export default function HackTheNet() {
           </div>
         </section>
 
-        <section id="paths" className="py-20 sm:py-32">
+        <section id="about" className="py-20 sm:py-32">
           <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mx-auto max-w-7xl px-4">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Choose Your Path</h2>
-              <p className="mt-4 text-lg text-neutral-300">Choose whichever style you prefer. We have everything that'll pique your interest.</p>
-            </div>
-            <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-              {paths.map((path, i) => (
-                <motion.div key={path.title} variants={fadeInUp} transition={{ delay: i * 0.1 }}>
-                  <Card className="h-full border-border bg-card transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20">
-                    <CardHeader>
-                      <div className="mb-4 grid h-12 w-12 place-items-center rounded-lg bg-secondary text-primary">{path.icon}</div>
-                      <CardTitle>{path.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent><p className="text-neutral-300">{path.text}</p></CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">About The Hackathon</h2>
+              <p className="mt-4 text-lg text-neutral-300">
+                Hack The Net is a 9-day virtual hackathon where students from around the world come together to learn, build, and innovate. Whether you're a seasoned coder or just starting out, this is your chance to push your skills to the limit, collaborate with peers, and create something amazing. We provide the resources, mentorship, and platform—you bring the ideas and the passion to turn them into reality.
+              </p>
             </div>
           </motion.div>
         </section>

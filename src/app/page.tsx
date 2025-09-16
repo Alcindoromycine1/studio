@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Rocket, Calendar, Network, Users, Gift, Shield, Code, Cpu, Globe, Timer, ChevronRight, Mail, Trophy, Palette, Video, Wrench, Instagram, Linkedin } from "lucide-react";
+import { Rocket, Calendar, Network, Users, Gift, Shield, Code, Cpu, Globe, Timer, ChevronRight, Mail, Trophy, Palette, Video, Wrench, Instagram, Linkedin, Target, Users2, BrainCircuit, Group } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -103,8 +103,15 @@ export default function HackTheNet() {
     { icon: <Video className="h-5 w-5" />, title: "Workshops", text: "Giving you an in-depth tutorial on how to start and take off on this hackathon." },
   ];
   
+  const aboutCards = [
+    { icon: <Target className="h-8 w-8" />, title: "Theme & Goals", text: "The theme is 'Hack the Future'. Our goal is to empower students to learn, build, and innovate on the open internet." },
+    { icon: <Calendar className="h-8 w-8" />, title: "Schedule", text: `A 9-day virtual event from ${EVENT.start.toLocaleDateString(undefined, { month: 'long', day: 'numeric' })} to ${EVENT.end.toLocaleDateString(undefined, { day: 'numeric', year: 'numeric' })}.` },
+    { icon: <Users2 className="h-8 w-8" />, title: "Who It's For", text: "Open to all students, from seasoned coders to curious beginners. Everyone is welcome to join." },
+    { icon: <Group className="h-8 w-8" />, title: "Team Size", text: "You can hack solo or form a team of up to 4 people. Collaborate and bring your ideas to life." },
+  ];
+
   const prizes = [
-    { icon: <Trophy className="h-8 w-8 text-amber-400" />, title: "Grand Prize", text: "$5,000 cash, plus high-end gear from our sponsors and a featured spot on our blog." },
+    { icon: <Trophy className="h-8 w-8 text-amber-400" />, title: "Grand Prize", text: "$500 cash, ." },
     { icon: <Trophy className="h-8 w-8 text-slate-300" />, title: "Path Winners", text: "$1,500 for the best project in each path: Hard Coding, AI-Powered App Generation, and Cybersecurity." },
     { icon: <Trophy className="h-8 w-8 text-orange-400" />, title: "Best Wildcard", text: "$1,000 for the most creative, fun, or surprising 'Wildcard' project." },
   ];
@@ -226,8 +233,23 @@ export default function HackTheNet() {
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">About The Hackathon</h2>
               <p className="mt-4 text-lg text-neutral-300">
-                Hack The Net is a 9-day virtual hackathon where students from around the world come together to learn, build, and innovate. Whether you're a seasoned coder or just starting out, this is your chance to push your skills to the limit, collaborate with peers, and create something amazing. We provide the resources, mentorship, and platform—you bring the ideas and the passion to turn them into reality.
+                Hack The Net is a 9-day virtual hackathon where students from around the world come together to learn, build, and innovate.
               </p>
+            </div>
+            <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {aboutCards.map((card, i) => (
+                <motion.div key={card.title} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
+                  <Card className="h-full border-border bg-card text-center transition-shadow hover:shadow-primary/20">
+                    <CardHeader className="items-center">
+                      <div className="grid h-16 w-16 place-items-center rounded-full bg-secondary text-accent">{card.icon}</div>
+                    </CardHeader>
+                    <CardContent>
+                      <CardTitle className="text-xl mb-2">{card.title}</CardTitle>
+                      <p className="text-neutral-300">{card.text}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </section>
@@ -383,7 +405,3 @@ export default function HackTheNet() {
     </div>
   );
 }
-
-    
-
-    

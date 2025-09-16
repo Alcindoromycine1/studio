@@ -126,11 +126,10 @@ export default function HackTheNet() {
   const faqs = [
     { q: "Is it free?", a: "Yes! Admission is free for everyone!" },
     { q: "Do I need an idea beforehand?", a: "Nope. We'll run team-forming sessions and idea jams to help you get rolling." },
-    { q: "When and where is the hackathon?", a: "HackTheNet 2026 is a 9-day virtual event from March 14 to March 23, 2026. Everything will be hosted online, so you can join from anywhere." },
+    { q: "When and where is the hackathon?", a: "HackTheNet 2026 is a 9-day virtual event from March 14 to March 22, 2026. Everything will be hosted online, so you can join from anywhere." },
     { q: "What can I build?", a: "Anything you like! Web, mobile, AI, hardware, or something totally out of the box. As long as it follows the rules, you’re free to innovate." },
     { q: "Are there prizes?", a: "Yes! We’ll have prizes for top projects, creative ideas, and more. Details will be shared closer to the event." },
     { q: "Do I need to know how to code?", a: "Not at all. Beginners are welcome! We’ll have workshops and mentors to help you learn and build something amazing." },
-    { q: "How do I find a team?", a: "We’ll host networking sessions and team-matching events so you can meet others and form a group. You can also participate solo." },
   ];
 
   return (

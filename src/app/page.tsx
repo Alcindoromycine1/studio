@@ -111,9 +111,9 @@ export default function HackTheNet() {
   ];
 
   const prizes = [
-    { icon: <Trophy className="h-8 w-8 text-amber-400" />, title: "1st Place", text: <span className="text-4xl font-bold">$100 cash</span> },
-    { icon: <Trophy className="h-8 w-8 text-slate-300" />, title: "2nd Place", text: <span className="text-3xl font-bold">$50 cash</span> },
-    { icon: <Trophy className="h-8 w-8 text-orange-400" />, title: "3rd Place", text: <span className="text-3xl font-bold">$25 cash</span> },
+    { icon: <Trophy className="h-8 w-8 text-amber-400" />, title: "1st Place", text: <span className="text-4xl font-bold">$100 Cash Prize</span> },
+    { icon: <Trophy className="h-8 w-8 text-slate-300" />, title: "2nd Place", text: <span className="text-3xl font-bold">$50 Cash</span> },
+    { icon: <Trophy className="h-8 w-8 text-orange-400" />, title: "3rd Place", text: <span className="text-3xl font-bold">$25 Cash</span> },
   ];
 
   const judges = [
@@ -127,6 +127,11 @@ export default function HackTheNet() {
     { q: "Who can participate?", a: "Students, professionals, and beginners are welcome. Form a team of up to 4 or hack solo." },
     { q: "Is it free?", a: "Yes! Admission is free for everyone!" },
     { q: "Do I need an idea beforehand?", a: "Nope. We'll run team-forming sessions and idea jams to help you get rolling." },
+    { q: "When and where is the hackathon?", a: "HackTheNet 2026 is a 9-day virtual event from March 14 to March 23, 2026. Everything will be hosted online, so you can join from anywhere." },
+    { q: "What can I build?", a: "Anything you like! Web, mobile, AI, hardware, or something totally out of the box. As long as it follows the rules, you’re free to innovate." },
+    { q: "Are there prizes?", a: "Yes! We’ll have prizes for top projects, creative ideas, and more. Details will be shared closer to the event." },
+    { q: "Do I need to know how to code?", a: "Not at all. Beginners are welcome! We’ll have workshops and mentors to help you learn and build something amazing." },
+    { q: "How do I find a team?", a: "We’ll host networking sessions and team-matching events so you can meet others and form a group. You can also participate solo." },
   ];
 
   return (
@@ -277,7 +282,7 @@ export default function HackTheNet() {
           <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mx-auto max-w-7xl px-4">
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Prizes & Glory</h2>
-              <p className="mt-4 text-lg text-neutral-300">Win incredible prizes, and more importantly, eternal bragging rights.</p>
+              <p className="mt-4 text-lg text-neutral-300">Win amazing prizes, and show-off your incredible talent.</p>
             </div>
             <div className="mt-16 grid grid-cols-1 gap-8">
               <motion.div variants={fadeInUp}>

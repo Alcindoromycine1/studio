@@ -233,7 +233,7 @@ export default function HackTheNet() {
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">About The Hackathon</h2>
               <p className="mt-4 text-lg text-neutral-300">
-                Hack The Net is a 9-day virtual hackathon where students from around the world come together to learn, build, and innovate.
+                Hack The Net is a 9-day virtual hackathon where students from across Canada come together to learn, build, and innovate.
               </p>
             </div>
             <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">

@@ -104,14 +104,14 @@ export default function HackTheNet() {
   ];
   
   const aboutCards = [
-    { icon: <Target className="h-8 w-8" />, title: "Theme & Goals", text: "The theme is 'Hack the Future'. Our goal is to empower students to learn, build, and innovate on the open internet." },
-    { icon: <Calendar className="h-8 w-8" />, title: "Schedule", text: `A 9-day virtual event from ${EVENT.start.toLocaleDateString(undefined, { month: 'long', day: 'numeric' })} to ${EVENT.end.toLocaleDateString(undefined, { day: 'numeric', year: 'numeric' })}.` },
-    { icon: <Users2 className="h-8 w-8" />, title: "Who It's For", text: "Open to all students, from seasoned coders to curious beginners. Everyone is welcome to join." },
-    { icon: <Group className="h-8 w-8" />, title: "Team Size", text: "You can hack solo or form a team of up to 4 people. Collaborate and bring your ideas to life." },
+    { icon: <Target className="h-8 w-8 text-accent" />, title: "Theme & Goals", text: "The theme is 'Hack the Future'. Our goal is to empower students to learn, build, and innovate on the open internet." },
+    { icon: <Calendar className="h-8 w-8 text-accent" />, title: "Schedule", text: `A 9-day virtual event from ${EVENT.start.toLocaleDateString(undefined, { month: 'long', day: 'numeric' })} to ${EVENT.end.toLocaleDateString(undefined, { day: 'numeric', year: 'numeric' })}.` },
+    { icon: <Users2 className="h-8 w-8 text-accent" />, title: "Who It's For", text: "Open to all students, from seasoned coders to curious beginners. Everyone is welcome to join." },
+    { icon: <Group className="h-8 w-8 text-accent" />, title: "Team Size", text: "You can hack solo or form a team of up to 4 people. Collaborate and bring your ideas to life." },
   ];
 
   const prizes = [
-    { icon: <Trophy className="h-8 w-8 text-amber-400" />, title: "Grand Prize", text: <><span className="font-bold">$100</span> cash.</> },
+    { icon: <Trophy className="h-8 w-8 text-amber-400" />, title: "Grand Prize", text: <span className="text-4xl font-bold">$100 cash</span> },
     { icon: <Trophy className="h-8 w-8 text-slate-300" />, title: "Path Winners", text: "$1,500 for the best project in each path: Hard Coding, AI-Powered App Generation, and Cybersecurity." },
     { icon: <Trophy className="h-8 w-8 text-orange-400" />, title: "Best Wildcard", text: "$1,000 for the most creative, fun, or surprising 'Wildcard' project." },
   ];

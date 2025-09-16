@@ -111,7 +111,7 @@ export default function HackTheNet() {
   ];
 
   const prizes = [
-    { icon: <Trophy className="h-8 w-8 text-amber-400" />, title: "Grand Prize", text: "$500 cash, ." },
+    { icon: <Trophy className="h-8 w-8 text-amber-400" />, title: "Grand Prize", text: "$100 cash." },
     { icon: <Trophy className="h-8 w-8 text-slate-300" />, title: "Path Winners", text: "$1,500 for the best project in each path: Hard Coding, AI-Powered App Generation, and Cybersecurity." },
     { icon: <Trophy className="h-8 w-8 text-orange-400" />, title: "Best Wildcard", text: "$1,000 for the most creative, fun, or surprising 'Wildcard' project." },
   ];

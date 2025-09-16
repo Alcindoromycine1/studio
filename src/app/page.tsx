@@ -104,10 +104,10 @@ export default function HackTheNet() {
   ];
   
   const aboutCards = [
-    { icon: <Calendar className="h-10 w-10 text-accent" />, title: "Schedule", text: `A 9-day virtual event from ${EVENT.start.toLocaleDateString(undefined, { month: 'long', day: 'numeric' })} to ${EVENT.end.toLocaleDateString(undefined, { day: 'numeric', year: 'numeric' })}.` },
+    { icon: <Calendar className="h-10 w-10 text-accent" />, title: "Schedule", text: `A 9-day virtual event from ${EVENT.start.toLocaleDateString(undefined, { month: 'long', day: 'numeric' })} to March 22` },
     { icon: <Users2 className="h-10 w-10 text-accent" />, title: "Who It's For", text: "Open to all students, from seasoned coders to curious beginners. Everyone is welcome to join." },
     { icon: <Group className="h-10 w-10 text-accent" />, title: "Team Size", text: "You can hack solo or form a team of up to 4 people. Collaborate and bring your ideas to life." },
-    { icon: <Target className="h-10 w-10 text-accent" />, title: "[insert title]", text: "[insert body text]" },
+    { icon: <BrainCircuit className="h-10 w-10 text-accent" />, title: "Innovation & Learning", text: "Workshops, mentors, and resources to spark creativity and help you grow new skills." },
   ];
 
   const prizes = [
@@ -424,5 +424,3 @@ export default function HackTheNet() {
     </div>
   );
 }
-
-    
